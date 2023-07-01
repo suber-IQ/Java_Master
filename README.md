@@ -1,4 +1,4 @@
-# Data Type
+# Fundamental of Java
 
 ## Hierarchy of Data Types
 
@@ -9,6 +9,7 @@
 - Boolean  
 - Char    
 - byte,shor,int,long, float, double
+- Primitive data Type is never null but can be 0
 
 2. Non-Primitive Data Type  
 
@@ -97,3 +98,107 @@ boolean isNotPresent = true `
 - Stores fractional numbers. Sufficient for storing 15 decimal digits
 - Range of Number: 1.7 e-<sup>308</sup> 1.7 e+<sup>308</sup>
 - default value is 0.0
+
+---
+## Type Casting - Primitive types
+### ✴️Widening Casting
+- byte -> short -> char -> int -> long -> float -> double   
+` Example:- `
+```java
+ public class TypeConversion{
+      public static void main( String[] args){
+            int i_val = 3;
+            double d_val = i_val; (Automatic casting : int to double)
+            System.out.println(i_val); (outputs 3)
+            System.out.println(d_val); (outputs 3.0)
+      }
+ }
+```
+### ✴️Narrowing Casting
+- double -> float -> long -> int -> char -> short -> byte  
+` Example:- `
+```java
+ public class TypeConversion{
+      public static void main( String[] args){
+            int d_val = 3.45;
+            double i_val = (int) d_val; (Manual Casting: double to int)
+            System.out.println(i_val); (outputs 3)
+            System.out.println(d_val); (outputs 3.45)
+      }
+ }
+```
+---
+
+---
+ ## Reference Data types in Java
+ ### ✴️class, Array ,interface, enum , String etc.
+ - Reference Data type will **contain a memory address** of **variable value** and *will not store the value directly*.
+ - They are called non-primitive data type.
+ - They are created by the programmer.
+ - They can be null.
+ - 0 != null (0 and null not equal. 0 means some data 0 and null means nothing).
+
+---
+
+---
+ ## Operators in Java
+ ### ✴️The value/data on which they operate, are referred as operator.
+```java
+  ⏩ A + 5 // here '+' is operator and 'A' & '5' are operands.
+  ⏩ A + 3 // here '+' is operator and 'A' & '3' are operands.
+  ⏩ A - 3 // here '-' is operator and 'A' & '3' are operands.
+```
+
+### ✴️Classification
+- Based on the number of operands,it works on
+ 1. Unary *A* 🔜 *A* (1 value on work)
+ 2. Binary X and Y -> X 🔁 Y (2 value on work)
+ 3. Ternary (3 oprands on work is Conditinal operator Only) 
+
+### ✴️Types of Operator
+ 1. Arithemetic
+ 2. Shift
+ 3. Relational
+ 4. Bitwise
+ 5. Logical
+ 6. Assignment
+ 7. Conditional  
+ 
+ ### 🌟Arithemetic Operators
+ ` Exmaple:- `
+  ```java
+  int x = 17, y = 2;
+  System.out.println(x + y) // prints addition 19
+  System.out.println(x - y) // prints submission 15
+  System.out.println(x * y) // prints multiplication 34
+  System.out.println(x / y) // prints divide 8
+  System.out.println(x % y) // prints modules 1
+
+  ```
+ #### 👉 Unary Operator
+ 1. Unary ++
+ 2. Unary --
+ 3. Unary -
+
+ ```java
+ ▶️ Unary Increment: ++
+ ▶️ Unary Decrement: --
+ ▶️ Post and Pre
+ ▶️ Post Increment / Post Decrement and Pre Increment / Pre Decrement
+ ➡️ Post ( Post means first use then increase)
+ ➡️ Pre ( Pre means first increase then use)
+ 
+
+ Example:-
+     int x = 17;
+     System.out.println(x++)  // prints 17 first, then increase to 18
+     
+     System.out.println(++x) // increment to 19 and then print 19
+
+     int y = 19;
+     System.out.println(y--)  // prints 19 first, then decrease to 18
+     System.out.println(--y)  // decrement to 18 and then print 18
+
+
+ ```
+---

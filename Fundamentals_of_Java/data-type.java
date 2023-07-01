@@ -1,4 +1,3 @@
-package Fundamentals_of_Java;
 
 class DataTypeDemo{
       boolean isPresent;  // default is false hota hai
