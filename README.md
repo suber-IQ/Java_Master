@@ -204,7 +204,7 @@ boolean isNotPresent = true `
 ---
 
 ---
-## 👉Decimal to Binary conversions Tricks
+## 👉 Decimal to Binary conversions Tricks
 
 `Example :- int x = 68; output:- 1000100 (bottom to top)`  
 | 2  | 68  | 0  |
@@ -227,7 +227,11 @@ boolean isNotPresent = true `
 | 2  | 1  | 1  |
 |    | 0  |   |
 
-## 👉Binary to Decimal conversions Tricks
+## 👉 Binary to Decimal conversions Tricks
+
+- (num * (power(2,n)) // left shift 
+- (num / (power(2,n)) // right shift 
+
 `Exmaple :- Binary =  1000100  output: 68`
 
  **1 × 2<sup>6</sup> + 0 × 2<sup>5</sup> + 0 × 2<sup>4</sup> + 0 × 2<sup>3</sup> + 1 × 2<sup>2</sup> + 0 × 2<sup>1</sup> + 0 × 2<sup>0</sup>**  
@@ -236,5 +240,54 @@ boolean isNotPresent = true `
 
  **1 × 2<sup>5</sup> + 0 × 2<sup>4</sup> + 0 × 2<sup>3</sup> + 0 × 2<sup>2</sup> + 1 × 2<sup>1</sup> + 0 × 2<sup>0</sup>**
 
+```java
+int x = 10   =    0000 0000 0000 0000 0000 0000 0000 1010
+            
 
+🌟left shift(<<2 to 10) = 00 0000 0000 0000 0000 0000 0000 1010 00 // 1 × 2^5 + 0 × 2^4 + 1 × 2^3 + 0 × 2^2 + 0 × 2^1 + 0 × 2^0 = output: 40 (10 = 20 = 40) {// left shift to value is double}
+
+🌟right shift(>>2 to 10) = 00 0000 0000 0000 0000 0000 0000 0000 10 // 1 × 2^1 + 0 × 2^0  = output: 2 (10 = 5 = 2) {// right shift to value is half and In case >>> Unsined Right shift is behaviour is positive same example:- >> = >>> (only for positive value)}
+
+// 2's compliment value of 10 with write oposite value e.g 0 to 1 and 1 to 0
+            1111 1111 1111 1111 1111 1111 1111 0101 
+                                                 +1  (1 + 1 = 2 to binary = 10)
+            ---------------------------------------
+     -10 =  1111 1111 1111 1111 1111 1111 1111 0110    
+     
+//      👉 if -10 is :- 
+ 
+// 🌟 left shift to negative value (-10){ int x = -10}
+
+Left shift (<<2) :-
+            11 1111 1111 1111 1111 1111 1111 0110 00 // (left most cut two bits  and most right two cut bits then shift at position two zero) { after left shift perfome not coverte into decimal and some calculation the rest is there } 
+
+            // ➡️ left most bits is 1 then is negative value and left most bits is 0 then is positive value
+          11 1111 1111 1111 1111 1111 1111 0110 00
+           1 1111 1111 1111 1111 1111 1111 0110 00 // {left side one bit have to leave }
+           0 0000 0000 0000 0000 0000 0000 1001 11 // (OPOSITE VALUE)
+                                                +1
+          ----------------------------------------
+           0 0000 0000 0000 0000 0000 0000 1010 00 //output: -(40) how to -40 🔎 you one (1) bit have leave 1 is sign to negative value so -40 is output
+// 🌟 right shift to negative value (-10){ int x = -10}
+
+Right shift (>>2) :-
+           11 1111 1111 1111 1111 1111 1111 1111 01 // (🔎 is right shift to negative value you cut right most two bits and then left most bits shift with 🌠 11  NOT THAT 00 🌠 only use 11 } 
+
+            // ➡️ left most bits is 1 then is negative value and left most bits is 0 then is positive value
+          11 1111 1111 1111 1111 1111 1111 1111 01 
+           1 1111 1111 1111 1111 1111 1111 1111 01 // {left side one (1) bit have to leave }
+           0 0000 0000 0000 0000 0000 0000 0000 10  // (OPOSITE VALUE)
+                                                +1
+          ----------------------------------------
+           0 0000 0000 0000 0000 0000 0000 0000 11 //output: -(3) how to -3 🔎 you one (1) bit have leave 1 is sign to negative value so -3 is output    
+// 🌟 unsigned right shift to negative value (-10){ int x = -10}
+
+Unsigned Right shift (>>>2) :-
+            00 1111 1111 1111 1111 1111 1111 1111 01 (🔎 is Unsigned right shift to negative value you cut right most two bits and then left most bits shift with 🌠 00  NOT THAT 11 🌠 only use 00)
+
+            
+          00 1111 1111 1111 1111 1111 1111 1111 01 // (not compute this binary why? left most two bits is 0 it is positive binary value And You directly convert into decimal)
+          OUTPUT :- 1073741821  
+             
+ ```
 ---
