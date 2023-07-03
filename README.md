@@ -202,3 +202,39 @@ boolean isNotPresent = true `
 
  ```
 ---
+
+---
+## 👉Decimal to Binary conversions Tricks
+
+`Example :- int x = 68; output:- 1000100 (bottom to top)`  
+| 2  | 68  | 0  |
+|--- | --- |----|
+| 2  | 34  | 0  |
+| 2  | 17  | 1  |
+| 2  | 8  | 0  |
+| 2  | 4  | 0  |
+| 2  | 2  | 0  |
+| 2  | 1  | 1  |
+|    | 0  |   |
+
+`Exmaple :- int x = 34; output:- 100010 (bottom to top)`  
+| 2  | 34  | 0  |
+|--- | --- |----|
+| 2  | 17  | 1  |
+| 2  | 8  | 0  |
+| 2  | 4  | 0  |
+| 2  | 2  | 0  |
+| 2  | 1  | 1  |
+|    | 0  |   |
+
+## 👉Binary to Decimal conversions Tricks
+`Exmaple :- Binary =  1000100  output: 68`
+
+ **1 × 2<sup>6</sup> + 0 × 2<sup>5</sup> + 0 × 2<sup>4</sup> + 0 × 2<sup>3</sup> + 1 × 2<sup>2</sup> + 0 × 2<sup>1</sup> + 0 × 2<sup>0</sup>**  
+
+`Exmaple :- Binary =  100010  output: 34`
+
+ **1 × 2<sup>5</sup> + 0 × 2<sup>4</sup> + 0 × 2<sup>3</sup> + 0 × 2<sup>2</sup> + 1 × 2<sup>1</sup> + 0 × 2<sup>0</sup>**
+
+
+---
