@@ -204,7 +204,30 @@ boolean isNotPresent = true `
 ---
 
 ---
-## 👉 Decimal to Binary conversions Tricks
+---
+## 🌟Shift Operators
+
+1. 👉Left Shift Operator
+- They are binary operators.
+`Example :-  int x = 17; x<<2; //output: 68`
+- Decimal 17: Binary 10001
+- Left Shift the bits: (1st time) 100010 : decimal 34
+- (2nd time)  1000100 : decimal 68
+
+2. 👉Right Shift Operator
+- They are binary operators.
+`Example:-  int x = 17; x>>2; //output: 4`
+- Decimal 17: Binary 10001
+- Right shift the bits: (1st time) 01000 : decimal 8
+- (2nd time) 00100 :decimal 4
+
+3. 👉Unsigned right shift operator
+- >>>
+- For Positive number, >> and >>> behaves same
+- For negative number, >>> changes parity bit (MSB) to 0
+
+
+### 👉 Decimal to Binary conversions Tricks
 
 `Example :- int x = 68; output:- 1000100 (bottom to top)`  
 | 2  | 68  | 0  |
@@ -290,4 +313,107 @@ Unsigned Right shift (>>>2) :-
           OUTPUT :- 1073741821  
              
  ```
+---
+---
+## 🌟Relational & Logical Operator in Java
+
+### Relational Operator
+```java
+Example:- int a = 5; , int b = 5;    
+   a == b // True
+   a != b // False
+   a < b // False
+   a > b // False
+   a <= b // True
+   a >= b // True
+```
+### Logical Operator
+1. 👉Logical AND' Operator (&&):
+- Binary operator
+- This operator returns true when both the condition under consideration are true
+- condition && condition2
+```java
+Example:- int a = 5; int b = 7; int c = 8;
+       (a < b) && (a < c)
+```
+2. 👉 Logical OR' Operator (||):
+- Binary operator
+- This operator returns true when **either** of the conditions under consideration are true or both are true
+- condition1 || condition2
+```java
+Example:- int a = 5; int b = 7; int c = 2;
+       (a < b) || (a < c)
+``` 
+
+---
+
+---
+## 🌟Bitwise Operators in Java
+
+1. 👉 Bitwise AND' Operator (&):
+- This operator is a binary operator, denoted by ‘&.’ It returns bit by bit AND of input values, i.e., if both bits are 1, it gives 1, else it shows 0. 
+
+```java
+  Example:-  
+            int a = 5 = 0101 //(🔎In Binary) 
+            int b = 7 = 0111 //(🔎In Binary)
+            
+            ▶️ Bitwise AND Operation of 5 and 7 
+            0 1 0 1
+          & 0 1 1 1
+          ----------
+            0 1 0 1  = 5 //(🔎In Decimal)       
+     
+```
+
+2. 👉 Bitwise OR' Operator (|):
+-  This operator is a binary operator, denoted by ‘|’. It returns bit by bit OR of input values, i.e., if either of the bits is 1, it gives 1, else it shows 0. 
+
+```java
+  Example:-  
+            int a = 5 = 0101 //(🔎In Binary) 
+            int b = 7 = 0111 //(🔎In Binary)
+            
+            ▶️ Bitwise OR Operation of 5 and 7 
+            0 1 0 1
+          | 0 1 1 1
+          ----------
+            0 1 1 1  = 7 //(🔎In Decimal)  
+```
+3. 👉 Bitwise XOR' Operator (^):
+-  This operator returns 1 when either of the bit under consideration is 1 but not both. 
+
+```java
+  Example:-  
+            int a = 5 = 0101 //(🔎In Binary) 
+            int b = 7 = 0111 //(🔎In Binary)
+            
+            ▶️ Bitwise XOR Operation of 5 and 7
+            0 1 0 1
+          ^ 0 1 1 1
+          ----------
+            0 0 1 0  = 2 //(🔎In Decimal)  
+```
+4. 👉 Bitwise Complement (~):
+-  This operator is a unary operator, denoted by ‘~.’ It returns the one’s complement representation of the input value, i.e., with all bits inverted, which means it makes every 0 to 1, and every 1 to 0. 
+
+```java
+  Example:-  
+            int a = 5 = 0101 //(🔎In Binary) 
+            
+            ▶️ Bitwise Complement Operation of 5
+          ~ 0 1 0 1
+          ----------
+            1 0 1 0  = 10 //(🔎In Decimal)  
+
+```
+`🤘Note: Compiler will give 2’s complement of that number, i.e., 2’s complement of 10 will be -6.`
+
+---
+
+---
+## 🌟Assignment Operators in Java
+
+- It is used to assign the value of right side to the vaiable on the left.
+
 ---
