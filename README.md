@@ -415,5 +415,68 @@ Example:- int a = 5; int b = 7; int c = 2;
 ## 🌟Assignment Operators in Java
 
 - It is used to assign the value of right side to the vaiable on the left.
+- They are binary operators.
 
+`Example:- int x = 17 (x is assigned 17) {it is use to assign the value of right side to the variable on the left.}`
+
+### Compound Operators
+ 
+- +=
+- a += 10 // a = a + 10;
+- -=
+- a -= 10 // a = a - 10;
+- *=
+- /=
+- %=
+- &= ^= |=
+- <<= >>= >>>=
+
+---
+
+---
+## 🌟Conditional Operators in Java
+
+- Also known as ternary operator.
+- variable = expression1 ? expression2 : expression3  
+`Example:- if(expression1){
+  vaiable = expression2;
+}else{
+  variable = expression3;
+}`
+---
+
+---
+## ✴️Garbage Collection in Java
+- Garbage means unreferenced objects
+- Garbage Collection is the process by which the runtime unused memory is reclaimed and given back to operating system
+
+- Stack Memory and Heap Memory
+
+- By making the reference nul  
+ `Example:- Sumit = null; 
+ Student Sumit = new Student();
+ Student SuberIQ = new Student();
+ Sumit = SuberIQ;`
+### 👉GC() Method
+- Used to invoke the garbage collector to perform cleanup processing
+- Found in System and Runtime classes
+### 👉finalize() Method
+- Invoke each time just before the object gets destroyed.
+- The Signture of method is:
+`public void finalize(){}`  
+```java
+class GarbageCollection{
+  public void finalize(){
+    System.out.println("object is garbage collected");
+  }
+  public static void main(String args[]){
+    GarbageCollection gc1 = new GarbageCollection();
+    GarbageCollection gc2 = new GarbageCollection();
+    gc1 = null;
+    gc2 = null;
+    System.gc();
+  }
+  
+}
+```
 ---
