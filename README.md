@@ -483,3 +483,96 @@ class GarbageCollection{
 
 # Control Structure Of Java
 
+## 🌟 Conditional Statements
+- It controls/decides which statement should be executed and when
+- Decision-making statements evaluate the Boolean expression.
+
+### 👉 Types of Conditional Statements
+
+- if Statements (if else, elseif)
+- Switch-case Statements
+
+#### ✴️ if Statements
+- The expression with "if" gives a boolean value: **true/false**
+- Simple if
+- if-else statement
+- if-else-if ladder
+- Nested if
+
+- Simple if is used when we want to execute the block of code based on the condition.
+
+`Syntax: `
+```java
+ if(expression){
+  statements...
+ }
+ more statements...
+```
+
+#### ✴️ if-else Statement
+- If the expression evaluates to true it executes a statement/block of statements, otherwise it executes the else statement/block of statements.  
+
+`Syntax: `
+```java
+if(expression){
+  statements...
+}
+else{
+  other statments...
+}
+more statments...
+
+```
+
+#### ✴️ if-else-if Ladder
+- if the expression evaluates to true it executes a statement/block of statements, otherwise it has multiple if-else blocks.   
+
+`Syntax: `
+```java
+if(expression 1){
+  statements; //executes when expression 1 evaluates to true
+}
+else if(expression 2){
+  statements; // executes when expression 2 evaluates to true
+}
+else{
+  statement 2; //executes when all the expressions evaluates to false
+}
+```
+
+#### ✴️ Nested if Ladder
+- If any statement contains another if-else block, similarly else block may contain another if-else block within the same programming.
+
+`Syntax: `
+```java
+if(expression 1){
+  statement 1; //executes when expression 1 is true
+  if(expression 2){
+    statement 2; //executes when expression 1 as well as 2  is true
+  }else{
+    statements 3; //executes when expression 1 is true and expression 2 is false
+  }
+
+}
+```
+#### ✴️ Switch-case
+- One can select only one option from given number of options very easily.
+- It is similar to if-else-if ladder.
+- The switch statement works with bytes, short ,int, long, enum types, String and some wrapper types like byte, short, int, and Long.
+
+`Syntax: `
+```java
+  switch(expression){
+    case value1:
+     //code to be executed;
+     break;  // optional
+    case value2:
+     //code to be executed;
+     break; // optional
+     ......
+    
+    default:
+     //code to be executed if all cases are not matched;
+  }
+```
+## 🌟 Iterative Statements
