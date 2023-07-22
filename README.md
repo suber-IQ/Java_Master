@@ -576,3 +576,282 @@ if(expression 1){
   }
 ```
 ## 🌟 Iterative Statements
+
+- Iterative statements that are used to execute a statement/block of statements repeatedly as long as the given expression is True.
+- Also known as looping statement/repetitive statement.
+
+#### ✴️ 'while' Statement
+- The while statment is used to execute a single statement or block of statements repeatedly as long as the given condition is True.
+- The while Statement is also known as **Entry control
+looping statement**.
+
+`Syntax: `
+```java
+    while(boolean expression){
+      // block of statements;
+    }
+    // statements after while
+
+    Example:-
+       public class WhileLoopExample {
+          public static void main(String[] args) {
+            int count = 0;
+        
+             // This while loop will run until the count reaches 5
+            while (count < 5) {
+            System.out.println("Count: " + count);
+            count++; // Increment count by 1 in each iteration
+            }
+        
+            System.out.println("Loop has ended!");
+          }
+      }
+
+```
+
+#### ✴️ 'do-while' Statement
+
+- The do-while statement is used to execute a single statement or block of statements repeatedly as long as the given condition is TRUE.
+
+- The do-while statement is also known as **Exit control looping statement.**
+
+`Syntax: `
+```java
+    do{
+       //block of statements;
+    }while(boolean expression);
+      // statements after do-while
+
+
+    Example:-
+        public class DoWhileLoopExample {
+            public static void main(String[] args) {
+              int count = 0;
+        
+              // This do-while loop will run until the count reaches 5
+            do {
+               System.out.println("Count: " + count);
+              count++; // Increment count by 1 in each iteration
+            } while (count < 5);
+        
+           System.out.println("Loop has ended!");
+          }
+      }
+
+      🔸//Output:-
+            Count: 0
+            Count: 1
+            Count: 2
+            Count: 3
+            Count: 4
+            Loop has ended!
+
+``` 
+   
+#### ✴️ 'for' Statement
+
+- For loop is used to iterate a block of statements multiple times.
+- Mostly used when we have fixed number of iterations.
+
+`Syntax: `
+```java
+   for(int expr(s); test-expression; Increment/decrement(s)){
+    //  block of statements;
+   }
+
+   Example:-
+        public class ForLoopExample {
+            public static void main(String[] args) {
+               // This for loop will print the numbers from 1 to 5
+                  for (int i = 1; i <= 5; i++) {
+                    System.out.println("Number: " + i);
+                 }
+        
+              System.out.println("Loop has ended!");
+           }
+        }
+    🔸//Output:-
+            Number: 1
+            Number: 2
+            Number: 3
+            Number: 4
+            Number: 5
+            Loop has ended!
+
+```
+
+#### ✴️ 'forEach' Statement
+
+- It is generally used for arrays/collections.
+
+`Syntax: `
+```java
+   for(data type var_name:array){
+     //statements using var_name;
+   }
+
+   Example:-
+        public class ForEachLoopExample {
+            public static void main(String[] args) {
+               // Example array of integers
+                  int[] numbers = {1, 2, 3, 4, 5};
+                 // Using forEach loop to iterate over the elements of the array
+                  for (int number : numbers) {
+                     System.out.println("Number: " + number);
+                  }
+        
+              System.out.println("Loop has ended!");
+           }
+        }
+    🔸//Output:-
+            Number: 1
+            Number: 2
+            Number: 3
+            Number: 4
+            Number: 5
+            Loop has ended!
+
+```
+
+### 👉 Jump Statement
+
+- They transfer the program execution control to a specific statement.
+- It is generally used to skip some statements or come out of loop.
+
+- Break, continue, return
+
+#### ✴️ 'Break': Jump Statement
+
+- Inside the switch case to come out of switch block.
+- It is used Within the loops, to break the loop execution based on certain condition.
+- *The break connot be used outside the loop or switch statement.*
+
+`Example: `
+```java
+    class JumpStatement {
+      public static void main(String[] args){
+            // ✴️ 'Break': Jump Statement
+            int num = 10;
+            for(int i = 1; i <= num; i++){
+                  if(i == 7)
+                     break;
+                     System.out.println(i);
+            }
+            System.out.println("Just came out of loop!");
+
+      }
+    }
+    🔸//output
+       1
+       2
+       3
+       4
+       5
+       6
+       Just came out of loop!
+
+```
+
+#### ✴️ 'Continue': Jump Statement
+
+- When it is encountered, it skips the remaining statements of the current iteration and continues with next iteration.
+- *The continue statement cannot be used outside the loop*  
+   
+`Example: `
+```java
+    public class ContinueExample {
+      public static void main(String[] args) {
+        // Example array of integers
+        int[] numbers = {1, 2, 3, 4, 5};
+        
+        // Using a loop to print even numbers in the array
+        for (int number : numbers) {
+            if (number % 2 == 1) {
+                // If the number is odd, skip to the next iteration
+                continue;
+            }
+            System.out.println("Even Number: " + number);
+        }
+        
+        System.out.println("Loop has ended!");
+      }
+   }
+
+    🔸//output
+      Even Number: 2
+      Even Number: 4
+      Loop has ended!
+
+```
+
+#### ✴️ 'Labelled Break' AND 'Labelled Continue' : Jump Statement
+
+- It is used in nested loops to break and continue a particular loop.
+
+`Example: `
+
+```java
+  First Example:- 
+
+    class LabelledBreakDemo{
+      public static void main(String[] args) {
+         out:
+          for(int i = 1; i <= 5; i++){
+             System.out.println("outer");
+               for(int j = 1; j <= 5; j++){
+                 System.out.println("inner");
+                  if(j==2){
+                    //break; //🔎 this will exit from inner loop only
+                    break out; //🔎 this will exit from both loops
+                  }
+               }
+          }
+      }
+    }
+
+  Second Example:- 
+
+   class LabelledContinueDemo{
+      public static void main(String[] args) {
+         out:
+          for(int i = 1; i <= 5; i++){
+             System.out.println("outer");
+               for(int j = 1; j <= 5; j++){
+                 System.out.println("inner");
+                  if(j==2){
+                    //  continue;
+                    continue out;
+                  }
+               }
+          }
+      }
+    }
+
+    //👉 Please go to practical then will be clear
+
+```
+
+#### ✴️ 'Return': Jump Statement
+
+- Return statement finishes the execution of a method and returns the control to the caller of method.
+
+`Example: `
+
+```java
+    public class ReturnExample {
+       public static void main(String[] args) {
+        int result = addNumbers(5, 10);
+        System.out.println("The result is: " + result);
+       }
+    
+          // A method to add two numbers and return the sum
+       public static int addNumbers(int a, int b) {
+        int sum = a + b;
+        return sum; // Returning the sum as the result of the method
+      }
+    }
+
+    🔸//output:-
+      The result is: 15
+
+```
