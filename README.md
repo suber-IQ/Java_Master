@@ -855,3 +855,563 @@ looping statement**.
       The result is: 15
 
 ```
+
+---
+# Arrays in Java
+
+## 🌟 Arrays
+
+- Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+- Array is a collection of similar types of elements which are stored in contiguous memory location.
+- We can store primitive values or objects in an array in java.
+- Java array is an object (**precisely reference**) which contains elements of homogeneous data types.
+
+### ✴️ Declaring Arrays
+
+- To declare an array, define the variable type with square brackets: 
+   
+   `dataType [] ref-name;`   
+   `dataType ref-name [];`
+
+- To assign the value, place the values in a comma-separated list, inside curly braces.   
+   `String [] names = { 'Sita', 'Mita', 'Gita','Rohan','Sumit'};`   
+   `int[] age = {30,33,38,40,45,100,55,21,28};`
+
+#### ✴️ Accessing Elements in Arrays
+
+```java
+    👉 Individual elements can be accessed using index.   
+    👉 index starts with '0'.   
+    👉 String [] names = { 'Sita', 'Mita', 'Gita','Rohan','Sumit'};
+    👉 System.out.println(names[0]); //prints 'Site'
+```
+#### ✴️ Array Length
+- To know the number of elements in an array, length property can be used.   
+   `String [] names = { 'Sita', 'Mita', 'Gita','Rohan','Sumit'};`   
+   `System.out.println(names.length); //prints 5'`
+
+#### ✴️ Loop through an Array
+- The array elements can be accessed with "for loop".
+- The array length property is used in a for loop for specifying the number of times loop should run.
+
+### ✴️ Example of Arrays in Java
+
+```java
+      public class JavaArrayExample {
+    public static void main(String[] args) {
+        // Declaring an array of integers
+        int[] numbers = new int[5];
+
+        // Initializing the array elements
+        numbers[0] = 10;
+        numbers[1] = 20;
+        numbers[2] = 30;
+        numbers[3] = 40;
+        numbers[4] = 50;
+
+        // Accessing array elements
+        System.out.println("Element at index 0: " + numbers[0]);
+        System.out.println("Element at index 2: " + numbers[2]);
+
+        // Array length
+        int arrayLength = numbers.length;
+        System.out.println("Array length: " + arrayLength);
+
+        // Iterating through the array
+        System.out.println("Array elements:");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
+  }
+
+     //👉 Output:- 
+      //Element at index 0: 10
+     //Element at index 2: 30
+     //Array length: 5
+     //Array elements:
+     //10 20 30 40 50
+```
+
+## 🌟 Single & Multi Dimensional Arrays in Java
+
+### ✴️ Declaring an array:
+- DataType [] ArrayRefVar;
+### ✴️ Instantiation of an array:
+- arrayRefVar = new datatype[size];
+
+### ✴️ Accessing Array Using ForEach   
+      
+   ```java
+   //👉 Example 01:-
+      int arr[] = {33,25,35,88,29};
+
+      for(int elem:arr){
+        System.out.println(elem)
+      }
+   //👉 Example 02:-
+       String [] names = { 'Sita', 'Mita', 'Gita','Rohan','Sumit'};
+
+       for(String ele:names){
+           System.out.println(ele);
+       }
+   ```
+   
+### ✴️ Multi Dimensional Array in Java
+
+- Data is stored in rows and columns.   
+
+   `dataTypen [][]arrayRefVar;`   
+   `dataTypen arrayRefVar[][];`   
+   `dataTypen []arrayRefVar[];`   
+
+### ✴️ Jagged Array
+
+- In Java, a jagged array is an array of arrays where each sub-array can have a different length. This means the elements of the main array are themselves arrays.   
+  `Example:- `   
+
+  ```java
+         public class JaggedArrayExample {
+            public static void main(String[] args) {
+                // Creating a jagged array of integers
+                int[][] jaggedArray = new int[3][];
+
+                // Initializing sub-arrays with different lengths
+                jaggedArray[0] = new int[]{1, 2, 3};
+                jaggedArray[1] = new int[]{4, 5, 6, 7};
+                jaggedArray[2] = new int[]{8, 9};
+
+                // Accessing elements of the jagged array
+                System.out.println("Element at [0][1]: " + jaggedArray[0][1]);
+                System.out.println("Element at [1][3]: " + jaggedArray[1][3]);
+                System.out.println("Element at [2][0]: " + jaggedArray[2][0]);
+
+                // Array length of sub-arrays
+                System.out.println("Length of sub-array at index 0: " + jaggedArray        [0].length);
+                System.out.println("Length of sub-array at index 1: " + jaggedArray        [1].length);
+                System.out.println("Length of sub-array at index 2: " + jaggedArray        [2].length);
+
+                // Iterating through the jagged array
+                System.out.println("Jagged array elements:");
+                for (int i = 0; i < jaggedArray.length; i++) {
+                    for (int j = 0; j < jaggedArray[i].length; j++) {
+                        System.out.print(jaggedArray[i][j] + " ");
+                    }
+                    System.out.println();
+                 }
+          }
+       }
+     //👉 Output:-  
+               // Element at [0][1]: 2
+               // Element at [1][3]: 7
+               // Element at [2][0]: 8
+               // Length of sub-array at index 0: 3
+               // Length of sub-array at index 1: 4
+               // Length of sub-array at index 2: 2
+               // Jagged array elements:
+               // 1 2 3 
+               // 4 5 6 7 
+               // 8 9        
+  ```
+### ✴️ Multi-Dimensional Arrays Example
+
+   `Example: `   
+
+      ```java
+           // 👉 2D Array Example:-
+                        public class TwoDimensionalArrayExample {
+                                  public static void main(String[] args) {
+                                       // Creating a 2D array of integers
+                                       int[][] twoDArray = new int[3][4];
+
+                                       // Initializing the 2D array elements
+                                       twoDArray[0][0] = 1;
+                                       twoDArray[0][1] = 2;
+                                       twoDArray[0][2] = 3;
+                                       twoDArray[0][3] = 4;
+
+                                       twoDArray[1][0] = 5;
+                                       twoDArray[1][1] = 6;
+                                       twoDArray[1][2] = 7;
+                                       twoDArray[1][3] = 8;
+
+                                       twoDArray[2][0] = 9;
+                                       twoDArray[2][1] = 10;
+                                       twoDArray[2][2] = 11;
+                                       twoDArray[2][3] = 12;
+
+                                       // Accessing 2D array elements
+                                       System.out.println("Element at [0][0]: " + twoDArray[0][0]);
+                                       System.out.println("Element at [1][2]: " + twoDArray[1][2]);
+
+                                       // 2D array dimensions (rows and columns)
+                                       int numRows = twoDArray.length;
+                                       int numCols = twoDArray[0].length;
+                                       System.out.println("Number of rows: " + numRows);
+                                       System.out.println("Number of columns: " + numCols);
+
+                                       // Iterating through the 2D array
+                                       System.out.println("2D Array elements:");
+                                       for (int i = 0; i < numRows; i++) {
+                                           for (int j = 0; j < numCols; j++) {
+                                               System.out.print(twoDArray[i][j] + " ");
+                                           }
+                                           System.out.println();
+                                       }
+                                 }
+                        }
+        // 👉 3D Array Example:-
+
+                   public class ThreeDimensionalArrayExample {
+                        public static void main(String[] args) {
+                            // Creating a 3D array of integers
+                            int[][][] threeDArray = new int[2][3][4];
+
+                            // Initializing the 3D array elements
+                            threeDArray[0][0][0] = 1;
+                            threeDArray[0][0][1] = 2;
+                            // ... (initialize other elements)
+
+                            // Accessing 3D array elements
+                            System.out.println("Element at [0][0][0]: " + threeDArray[0][0][0]);
+                            // ... (access other elements)
+
+                            // 3D array dimensions (depth, rows, and columns)
+                            int depth = threeDArray.length;
+                            int numRows = threeDArray[0].length;
+                            int numCols = threeDArray[0][0].length;
+                            System.out.println("Depth: " + depth);
+                            System.out.println("Number of rows: " + numRows);
+                            System.out.println("Number of columns: " + numCols);
+
+                            // Iterating through the 3D array
+                            System.out.println("3D Array elements:");
+                            for (int i = 0; i < depth; i++) {
+                                for (int j = 0; j < numRows; j++) {
+                                    for (int k = 0; k < numCols; k++) {
+                                        System.out.print(threeDArray[i][j][k] + " ");
+                                    }
+                                    System.out.println();
+                                }
+                                System.out.println();
+                            }
+                        }
+                  }
+                    
+
+
+      ```
+
+## 🌟 Copy / Clone an Array in java
+
+- we can copy an array to another by the arraycopy() method of System class.   
+
+ `Syntax: System.arraycopy()`      
+       `public static void arraycopy(Objec src, int srcPos, Object dest, int destPos, int length)`
+
+   - src: The source array from which elements will be copied.
+   - srcPos: The starting position in the source array from where copying begins.
+   - dest: The destination array where elements will be copied to.
+   - destPos: The starting position in the destination array where elements will be copied.
+   - length: The number of elements to be copied from the source array to the destination array.
+
+`Example usage of System.arraycopy():`   
+
+   ```java
+         public class ArrayCopyExample {
+             public static void main(String[] args) {
+              // Source array
+              int[] sourceArray = {1, 2, 3, 4, 5};
+
+              // Destination array
+              int[] destinationArray = new int[5];
+
+              // Copy elements from sourceArray to destinationArray
+              System.arraycopy(sourceArray, 0, destinationArray, 0, sourceArray.      length);
+
+              // Print the destinationArray
+              System.out.print("Destination Array: ");
+              for (int element : destinationArray) {
+                  System.out.print(element + " ");
+              }
+           }
+        }
+        
+     //👉 Output:-  
+            //Destination Array: 1 2 3 4 5
+
+   ```
+### ✴️ Cloning Array
+
+- Java Array can be cloned.
+- Single-Dimensions array: *🔎deep copy of the array*
+- Multi-Dimensions array: *🔎shallow copy of the array*
+
+### ✴️ Shallow Copy V/s Deep Copy
+
+- Shallow Copy store the reference of objects to the original memory address.
+
+ `Example of Clone() method:- `   
+
+  ```java
+         public class ArrayCloneExample {
+    public static void main(String[] args) {
+        // Source array
+        int[] sourceArray = {1, 2, 3, 4, 5};
+
+        // Using clone() method to copy the array
+        int[] destinationArray = sourceArray.clone();
+
+        // Print the destinationArray
+        System.out.print("Destination Array: ");
+        for (int element : destinationArray) {
+            System.out.print(element + " ");
+        }
+    }
+}
+    // 👉 output:- 
+        // Destination Array: 1 2 3 4 5
+
+  ```
+
+---
+---
+# Methods in Java
+
+## 🌟 Method Declaration in Java
+
+### ✴️ UnderStanding Methods
+
+- A collection of Statements / block of code which runs only when it is called.  
+
+### ✴️ Declaration of Method
+
+- It includes visibility, return type, method-name, list of parameter.   
+
+```java
+      accessModifier returnType methodName(parameter1Type parameter1Name, parameter2Type parameter2Name, ...) {
+    // Method body - the code that defines the behavior of the method
+    // You can use the parameters and perform operations inside the method body.
+    
+    // Optional return statement if the method has a non-void return type
+    return returnValue;
+}
+//  👉 Example:- 
+             public class ExampleClass {
+    // Method with no parameters and void return type
+    public void greet() {
+        System.out.println("Hello, World!");
+    }
+
+    // Method with parameters and int return type
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+}
+
+```
+
+### ✴️ Types of Method
+
+- Standard Libray (Built-in): *🔎  Print Method & copyarray() *
+- User Defined: : *🔎 CheckPrime or isPrime { function name by user}*
+
+```java
+  // 👉Example of Method:- 
+             public class PrimeNumberChecker {
+
+    // Method to check if a number is prime
+    public boolean isPrime(int number) {
+        if (number <= 1) {
+            return false; // Numbers less than or equal to 1 are not prime
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false; // If the number is divisible by any number from 2 to sqrt(number), it's not prime
+            }
+        }
+
+        return true; // If the number is not divisible by any number from 2 to sqrt(number), it's prime
+    }
+
+    public static void main(String[] args) {
+        PrimeNumberChecker checker = new PrimeNumberChecker();
+
+        // Test the isPrime() method with some sample numbers
+        int number1 = 7;
+        int number2 = 12;
+        int number3 = 37;
+
+        System.out.println(number1 + " is prime? " + checker.isPrime(number1));
+        System.out.println(number2 + " is prime? " + checker.isPrime(number2));
+        System.out.println(number3 + " is prime? " + checker.isPrime(number3));
+    }
+}
+
+
+      // 👉 output:-  
+           // 7 is prime? true
+           // 12 is prime? false
+           // 37 is prime? true
+
+```
+
+## 🌟 Method Overloading in Java
+
+- Multiple methods with same name and different parameters.
+ 
+- Area of circle and Area of Rectangle and  Area of Triangle   
+
+`Example of Overloading`
+
+```java
+   public class AreaCalculator {
+
+    // Method to calculate the area of a circle
+    public double calculateArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to calculate the area of a rectangle
+    public double calculateArea(double length, double width) {
+        return length * width;
+    }
+
+    // Method to calculate the area of a triangle
+    public double calculateArea(double base, double height) {
+        return 0.5 * base * height;
+    }
+
+    public static void main(String[] args) {
+        AreaCalculator calculator = new AreaCalculator();
+
+        // Test the overloaded methods
+        double circleRadius = 5.0;
+        double rectangleLength = 4.0;
+        double rectangleWidth = 6.0;
+        double triangleBase = 8.0;
+        double triangleHeight = 3.0;
+
+        double circleArea = calculator.calculateArea(circleRadius);
+        double rectangleArea = calculator.calculateArea(rectangleLength, rectangleWidth);
+        double triangleArea = calculator.calculateArea(triangleBase, triangleHeight);
+
+        System.out.println("Circle Area: " + circleArea);
+        System.out.println("Rectangle Area: " + rectangleArea);
+        System.out.println("Triangle Area: " + triangleArea);
+    }
+}
+
+    // 👉 Output:- 
+          //  Circle Area: 78.53981633974483
+          //  Rectangle Area: 24.0
+          //  Triangle Area: 12.0
+
+```
+## 🌟 Recursive Methods in Java
+
+- Recursion is the technique of function calling itself.
+- Used to break down the complexity in logic.
+- it makes the code compact but difficult to understand.  
+
+### ✴️ Method Recursion: Infinite
+
+
+`Syntax: `
+   - *returntype methodname(){ methodname(); }*
+   ```java
+          public class RecursionExample{
+             static void p(){
+                 System.out.println("hello");
+                 p();
+             }
+             public static void main(String[] args){
+              p();
+             }
+          }
+   ```
+### ✴️ Method Recursion: finite
+
+`Syntax: `
+   - *returntype methodname(){ methodname(); }*
+   ```java
+          public class FactorialCalculator {
+
+    // Recursive method to calculate factorial
+    public int calculateFactorial(int n) {
+        if (n == 0) {
+            return 1; // Base case: factorial of 0 is 1
+        } else {
+            return n * calculateFactorial(n - 1); // Recursive call to calculate factorial
+        }
+    }
+
+    public static void main(String[] args) {
+        FactorialCalculator calculator = new FactorialCalculator();
+
+        // Test the recursive method with some sample numbers
+        int number1 = 5;
+        int number2 = 0;
+        int number3 = 8;
+
+        int factorial1 = calculator.calculateFactorial(number1);
+        int factorial2 = calculator.calculateFactorial(number2);
+        int factorial3 = calculator.calculateFactorial(number3);
+
+        System.out.println("Factorial of " + number1 + " is: " + factorial1);
+        System.out.println("Factorial of " + number2 + " is: " + factorial2);
+        System.out.println("Factorial of " + number3 + " is: " + factorial3);
+    }
+}
+   // 👉 Output:- 
+        // Factorial of 5 is: 120
+        //Factorial of 0 is: 1
+        //Factorial of 8 is: 40320
+
+   ```   
+
+`Explan:- `   
+
+```java
+    n! = n * (n-1) * (n-2) * ... * 2 * 1
+
+  //🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠
+
+     factorial(5);
+     5 * factorial(4)
+     4 * factorial(3)
+     3 * factorial(2)
+     2 * factorial(1)
+
+     return 1
+     return 2*1 = 2
+     return 3*2 = 6
+     return 4*6 = 24
+     return 5*24 = 120
+
+  //🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠
+
+     calculateFactorial(5)
+    -> return 5 * calculateFactorial(4)
+         -> return 4 * calculateFactorial(3)
+             -> return 3 * calculateFactorial(2)
+                 -> return 2 * calculateFactorial(1)
+                     -> return 1 * calculateFactorial(0)
+                         -> return 1  (Base case: factorial of 0 is 1)
+                         
+  //🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠🌠
+
+    calculateFactorial(0) returns 1
+    calculateFactorial(1) returns 1 * 1 = 1
+    calculateFactorial(2) returns 2 * 1 = 2
+    calculateFactorial(3) returns 3 * 2 = 6
+    calculateFactorial(4) returns 4 * 6 = 24
+    calculateFactorial(5) returns 5 * 24 = 120
+                     
+
+```
+
+
+
+---
