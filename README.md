@@ -1705,4 +1705,101 @@ class StaticDemo{
 	}
 }
 ```
+
+## 🌟 Initializer Block in Java
+
+### ✴️  Initializer Block 
+
+- It is used to initialize the instance data member.
+- It executes when any object is created.
+- It is execuited before the constructor of the class gets executed.
+- A class can have multiple initializer block, in that case it gets executed in the order in which it appears.
+
+`Excutes:- `
+
+1. Main Method
+2. Object declared: initialzer block
+3. constructor
+
+`Example:- `
+
+```java
+ class InitializerBlockDemo{
+	private int i=0;
+	public InitializerBlockDemo(){
+		i++;
+		System.out.println("Inside Constructor: "+i);
+	}
+	
+	{
+		i++;
+		System.out.println("Initializer Block 1: "+i);
+	}
+	
+	{
+		i++;
+		System.out.println("Initializer Block 2: " + i);
+	}
+	
+	public static void main(String [] args){
+		System.out.println("Main Started");
+		InitializerBlockDemo obj1 = new InitializerBlockDemo();
+		System.out.println("Main Mid Way");
+		InitializerBlockDemo obj2 = new InitializerBlockDemo();
+		System.out.println("Main End");
+	}
+}
+```
+
+
+### ✴️ Static Initializer Block 
+
+- It is executed before main() method.
+- Any number of a static block can be defined, and this static blocks will be executed from top to bottom.
+
+`Excutes:- `
+
+1. Static initializer block
+2. Main Method
+3. Object declared: initialzer block
+4. constructor
+
+
+`Example:- `
+
+```java
+        class StaticInitializerBlockDemo{
+        	private int i=0;
+        	private static int j = 1;
+        	public static void main(String [] args){
+        		System.out.println("Main Started");
+        		StaticInitializerBlockDemo obj1 = new StaticInitializerBlockDemo();
+        		System.out.println("Main End");
+        	}
+        	
+        	{
+        		i++;
+        		System.out.println("Initializer Block - 1: "+ j);
+        	}
+        	{
+        		i++;
+        		System.out.println("Initializer Block - 2:" + i);
+        	}
+        	
+        	public StaticInitializerBlockDemo(){
+        		i++;
+        		System.out.println("Inside Constructor: "+ i);
+        	}
+	
+        	static{
+        		j++;
+        		System.out.println("Static Initializer Block - 1: " + j);
+        	}
+        	
+        	static {
+        		System.out.println("Static Initializer Block - 2");
+        	}
+        }
+```
+
 ---
