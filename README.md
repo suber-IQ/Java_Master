@@ -1802,4 +1802,80 @@ class StaticDemo{
         }
 ```
 
+## 🌟 Wrapper class in Java
+
+### ✴️ Wrapper Class
+
+- Wrapper class in Java provides the mechanism to convert primitive.
+
+
+| Primitive Type   | Wrapper class |
+|----------------  | ------------- | 
+|   byte           |      Byte     |      
+|   short          |      Short    |      
+|   int            |      Integer  |      
+|   long           |      Long     |      
+|   float          |      Float    |      
+|   double         |      Double   |      
+|   char           |    Character  |      
+|   boolean        |     Boolean   |      
+
+
+#### 🌠 Autoboxing & Unboxing
+
+### ✴️ Autoboxing
+
+- The automatic conversion of primitive data type into its corresponding wrapper class is known as autoboxing.
+
+`Example:- `
+
+```java
+       int i = 20;
+       Integer obj_i = Integer.valueOf(i);   // converting explicitly
+       Integer obj_j = i;        // autoboxing
+```
+
+### ✴️ Unboxing
+
+- The automatic conversion of wrapper type into its corresponding wrapper primitive type is known as unboxing.
+
+`Example:- `
+
+```java
+       Integer obj_i = new Integer(3);
+
+       int i = obj_i.intValue(); // 🔎 converting explicity
+
+       int j = obj_i;  //🔎 unboxing
+```
+
+### ✴️ Methods of Wrapper Class
+
+- Method used to get the value associated with the corresponding wrapper object.
+
+1. intValue()
+2. byteValue()
+3. shortValue()
+4. longValue()
+5. floatValue()
+6. doubleValue()
+7. charValue()
+8. booleanValue()
+
+### ✴️ Wrapper to String
+
+`Example:- `
+
+```java
+    public class WrapperDemo{
+        public static void main(String[] args){
+          Integer myInt = 1001;
+          String myString = myInt.toString();
+          System.out.println(myString.length());
+        }
+    }
+```
+
+
+
 ---
