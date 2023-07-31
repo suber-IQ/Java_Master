@@ -1412,6 +1412,297 @@ looping statement**.
 
 ```
 
+---
+---
+# Objects And Classes in Java
+
+## 🌟 Class and Object Declaration in Java
+
+### ✴️ Declaration of class and Objects
+
+- Object: Any real-life entity that has the state and behaviour.
+- State is stored in feild (data member).
+- Behavior is shown using method (function).
+- A class is a blue-print from which the object can be created.
+
+### ✴️ Class Declaration  
+
+`Syntax: `
+
+```java
+   class ClassName{
+      data-type field;
+      method;
+   }
+
+  //  👉 Example :- 
+              public class Example {
+                // Fields (variables)
+                private int number;
+                private String text;
+
+                // Constructor
+                public Example(int number, String text) {
+                    this.number = number;
+                    this.text = text;
+                }
+
+                // Methods
+                public void displayInfo() {
+                    System.out.println("Number: " + number);
+                    System.out.println("Text: " + text);
+                }
+            }
+
+```
+## 🌟 Access Modifiers in Java
+
+- Public Static void main (String agrs)
+
+### ✴️ Type of Modifiers in java
+
+1. Access Modifiers
+2. Non-access Modifiers
+    
+#### 🌠 Access Modifiers Types
+
+- Private
+- Default
+- Protected
+- Public
+
+#### 🌠 Non-access Modifiers Types
+
+- Static
+- Transient
+- Volatile
+- Abstract 
+- Final
+
+### 🌠 Access Modifiers
+
+1. Private: **accessible only in the class**
+2. Default: **accessible only in the package**
+2. Protected: **accessible int the package and also to the sub-classes**
+2. Public: **accessible from anywhere**
+
+| Access Modifier  | Within class  | within Package | outside package & sub-classess | Outside package |
+|----------------  | ------------- | -------------- | ------------------------------ | --------------- | 
+| **Private**      |      Y        |      N         |           N                    |      N          |
+| **Default**      |      Y        |      Y         |           N                    |      N          |
+| **Protected**    |      Y        |      Y         |           Y                    |      N          |
+| **Public**       |      Y        |      Y         |           Y                    |      Y          |
+
+## 🌟 Array of Objects in Java
+
+### ✴️ Creating Array of Objects
+
+- Array is a collection of elements of homogeneous data types stored in a  contiguous memory location. (Without hole)
+
+### ✴️ Declaring Array
+
+```java
+ int arr[];
+     arr = new int[3];
+
+  //  👉 Example :- 
+      class ArrayDemo{
+	       public static void main(String [] args){
+		           Employee e[];
+		          e = new Employee[5];
+		          for (int i=0;i<5;i++){
+		          	e[i] = new Employee();
+		          	e[i].setEmployee(i+1,10000*(i+1));
+		          }
+		
+		          /*for (int i=0;i<5;i++)
+		          	e[i].printEmployee();*/
+		          //e[3].printEmployee();
+		          for (int i=0;i<e.length;i++)
+		          	if (e[i].getSalary() <15000)
+		          		System.out.println("Bonus: Rs. 3000");
+		          	else
+		          		System.out.println("Bonus: Rs. 1000");
+		
+	       }
+      }
+
+      class Employee{
+	          private int empId;
+	          private float salary;
+	          
+	          public void setEmployee(int id, float s){
+	          	empId = id;
+	          	salary = s;
+	          }
+	          
+	          public void printEmployee(){
+	          	System.out.println("Employee ID:" + empId + " Salary:           " + salary);
+	          }
+	          
+	          public float getSalary(){
+	          	return salary;
+	          }
+      }
+```
 
 
+## 🌟 Constructors in Java
+
+### ✴️ Constructor
+
+- Name of method is as same as of the class name.
+- It does not have any return type.
+- It will be called when the object will be declared.   
+   `Employee e = new Employee();`
+
+### ✴️ Types of Constructors
+
+- Default (no parameter) constructor.
+- Parameterized constructor
+
+```java
+   class Student{
+      int rollNo;
+      float marks;
+
+      Student(){   //🔎 default constructor
+         rollNo = 101;
+         marks = 50.0f;
+      }
+      Student(int rollNo, float marks){ //🔎 parameterized constructor
+         this.rollNo = rollNo;
+         this.marks = marks;
+      }
+
+      public static void main(String args[]){
+        Student s1 = new Student();  //🔎Call default constructor
+        Student s2 = new Student(102,60.0f);//🔎Call parameterized constructor
+      }
+   }
+```
+
+### ✴️ Default Constructors
+
+- The default constructor is created by the compiler at runtime when programmer does not write any constructor in a class.
+
+- Constructor can be overloaded.
+- **Static** and **final** keywords cannot be used with constructor.
+
+`Example:- `
+
+```java
+          class ConstructorDemo{
+	             public static void main(String [] args){
+	             	Student s = new Student(101,45.5f);
+	             	Student s2 = new Student(102);
+	             	Student s1 = new Student();
+	             	s.displayStudent();
+	             	s1.displayStudent();
+	             	s2.displayStudent();
+
+
+	             }
+          }
+
+             class Student{
+             	private int rollNo;
+             	private float marks;
+             	
+             	public Student(){
+             		rollNo = 1;
+             		marks = 50f;
+             	}
+             	
+             	public Student(int r){
+             		rollNo = r;
+             		marks = 50f;
+             	}
+	
+             	public Student(int r, float m){
+             		rollNo = r;
+             		marks = m;
+             	}
+             	public void displayStudent(){
+             		System.out.println("RollNo:" + rollNo + " Marks: " + marks);
+             	}
+            }             
+```
+## 🌟 'this' Keyword in Java
+
+
+### ✴️ 'this' Keyword
+
+- Speacial keyword in Java, which is used to refer the current object in a class.
+- It's most common use is to eliminate the confusion/ambiguity
+between the same name of local variables and instance variables.
+
+### ✴️  Usage of 'this' keyword
+
+- Pass current object in the method
+- Refers current class instance variable/method.
+- Invoke current class constructor.
+- Returns current class instance.
+- Pass current object in the method.
+
+## 🌟 'static' Keyword in Java
+
+
+### ✴️  Usage of 'static' keyword
+
+- Used to manage memory.
+- Can be used with variables, method, block and nested class.
+- Makes the member as a class data rather than instance member.
+
+
+### ✴️  Static Variables
+
+- Static variables get memory only once, when the class is loaded, regardless of the number of objects created.
+- Static method can be invoked directly by class name rather than by instance name.
+- Static method can access static members only.
+- 'this' and 'super' keywords cannot be used in static method.
+
+`Example:- `
+
+```java
+     class Student{
+	int rollNo;
+	static int passingMarks;
+	float marks;
+
+	public static void setPassingMarks(int pm){
+		passingMarks = pm;
+			
+	}
+	
+	public void set(int rollNo, float marks){
+		this.rollNo = rollNo;
+		this.marks = marks;
+		 
+	}
+	
+	public void display(){
+		System.out.println("RollNo: " + rollNo);
+		System.out.println("marks: " + marks);
+		if (marks < passingMarks)
+			System.out.println("Grade : Fail");
+		else
+			System.out.println("Grade : Pass");
+	}
+}
+class StaticDemo{
+	
+	public static void main(String [] args){
+		Student.setPassingMarks(40);
+		
+		Student s1 = new Student();
+		Student s2 = new Student();
+
+		s1.set(101, 49);
+		s2.set(102, 22);
+		s1.display();
+		s2.display();
+	}
+}
+```
 ---
