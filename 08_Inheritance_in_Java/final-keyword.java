@@ -2,6 +2,7 @@ package Inheritance_in_Java;
 
 class FinalDemo1{
 	public static void main(String args[]){
+		Base b1 = new Base();
 		Derived d1 = new Derived();
 	
 		d1.print();
@@ -10,6 +11,11 @@ class FinalDemo1{
 }
 
 class Base{
+	protected final int f_i;  // f_i = 10;
+	protected int j;
+	{
+		f_i = 10;
+	}
 		Base(){
 			System.out.println("Base Created");
 		}

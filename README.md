@@ -1875,6 +1875,806 @@ class StaticDemo{
         }
     }
 ```
+---
+---
+# Inheritance in Java
+
+## 🌟 Inheritance in Java
+
+### ✴️ Inheritance
+
+- A mechanism in which one object acquires all the properties and behaviours of already existing object.
+
+- Inheritance represents the **IS-A** relationship which is also known as a parent-child relationship. 
+
+`Significance:- `
+
+- For method overriding: To achieve runtime polymorphism
+- For code reusability: A class only needs to write the unique features, and the rest of the code can be extended from the other class.
+
+`Terminology:- `
+
+- Super Class/ Parent class/ Base Class: The class from where a new clas inherits the features.
+
+- Sub Class/ Child Class/ Derived Class: A class which inherits the other class.   
+
+`Syntax:- `
+
+```java
+  class Subclass-name extends Superclass-name{
+      // methods and fields
+  }
+   
+```
+
+`Example:- `
+
+```java
+       //  👉 Explain (Derived Object)
+
+💧 Employee object will have two data members:
+  ➡️ String empid
+  ➡️ String empname
+
+💧 FullTimeEmployee object will have three data members:
+  ➡️ String empid
+  ➡️ String empname
+  ➡️ Float salary
+
+       //  👉 Example (Derived Object)
+ 
+            class InheritanceDemo1{
+	public static void main(String [] args){
+		Employee e1 = new Employee();
+		FullTimeEmployee ft1 = new FullTimeEmployee();
+		e1.setEmployee("E101","Sonal");
+		ft1.setFullTimeEmployee("E102","Parth",75000);
+		
+		e1.printEmployee();
+		ft1.printEmployee();
+	}
+}
+class Employee{
+	protected String empId;
+	protected String empName;
+	
+	public void setEmployee(String empId, String empName){
+		this.empId = empId;
+		this.empName = empName;
+	}
+	
+	public void printEmployee(){
+		System.out.println("Employee Id: " + empId);
+		System.out.println("Employee Name: " + this.empName);
+	}
+}
+
+class FullTimeEmployee extends Employee{
+	private double salary;
+	
+	public void setFullTimeEmployee(String empId, String empName, double salary){
+		//setEmployee(empId, empName);
+		this.empId = empId;
+		this.empName = empName;
+		this.salary = salary;
+	}
+	
+	public void printFullTimeEmployee(){
+		printEmployee();
+		System.out.println("Employee Salary: " + this.salary);
+	}
+}   
+```
+
+## 🌟 Types of Inheritance in Java
+
+
+### 🌠 Types of Inheritance
+
+1. Single Inheritance
+2. Multilevel Inheritance
+3. Hierarchical Inheritance
+4. Multiple Inheritance  **(not supported in Java)**
+5. Hybrid Inheritance  **(not supported in Java)**
+
+### ✴️ Single Inheritance
+
+- When a class inherits another class, it is known as a single inheritance.   
+
+`Example:- `
+
+```java
+  class A {
+    // Members of class A
+}
+
+class B extends A {
+    // Members of class B
+}
+
+```
+
+### ✴️ Multilevel Inheritance
+
+- When there is a chain of inheritance, it is known as a multilevel inheritance.   
+
+`Example:- `
+
+```java
+class A {
+    // Members of class A
+}
+
+class B extends A {
+    // Members of class B
+}
+
+class C extends B {
+    // Members of class C
+}
+
+
+```
+
+### ✴️ Hierarchical Inheritance
+
+- When two or more classes inherits a single class, its is known as hierarchical inheritance.
+
+
+`Example:- `
+
+```java
+class A {
+    // Members of class A
+}
+
+class B extends A {
+    // Members of class B
+}
+
+class C extends A {
+    // Members of class C
+}
+```
+### ✴️ Multiple Inheritance (not supported in Java):
+
+- When a class is created from two or more classes, its is known as multiple inheritance.
+
+
+`Example:- `
+
+```java
+// This is not possible in Java due to ambiguity.
+// class A { ... }
+// class B { ... }
+// class C extends A, B { ... }
+
+```
+### ✴️ Hybrid Inheritance (not supported in Java):
+
+- Special type of hybrid inheritance leads to ambiguity and so is not supported in Java.
+
+
+`Example:- `
+
+```java
+
+//👉 note likes to circle
+class A {
+    // Members of class A
+}
+
+class B extends A {
+    // Members of class B
+}
+
+class C extends A {
+    // Members of class C
+}
+
+class D extends B {
+    // Members of class D
+}
+
+
+```
+
+## 🌟 'super' Keyword in Java
+
+### ✴️ Super Keyword
+
+- Special type of reference variable that refers to the immediate parent class.
+- Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable.
+
+`Usages:- `
+
+- To refer immediate parent class instance variable.
+- To call immediate parent class instance method.
+- To call immediate parent class' constructor.   
+
+`Example:- `   
+
+```java
+
+  class SuperDemo {
+      public static void main(String[] args){
+        Derived obj1 = new Derived();
+        obj1.printJ();
+      }
+}
+
+class Base{
+      protected int i;
+      Base(){
+            i = 10;
+      }
+     public void printI(){
+            System.out.println(i);
+      }
+}
+
+class Derived extends Base{
+      private int j;
+      Derived(){
+            // super.i = 20;
+            super();
+            this.j = 30;
+      }
+      public void printJ(){
+            super.printI();
+            // System.out.println(i);
+            System.out.println(j);
+      }
+
+}
+
+```
+## 🌟 Constructors in Inheritance in Java
+
+### ✴️ Default Constructor
+
+- Constructor of base class with no argument gets automatically called in derived class constructor.
+
+`Example:- `
+
+```java
+  
+class ConstructorCallDemo1 {
+	public static void main(String [] args){
+		Derived dObj = new Derived(10,20);
+		
+		dObj.printIJ();
+	}
+}
+
+
+
+class Base{
+	protected int i;
+	public Base(){
+		System.out.println("Base Default Constructor Called");
+
+		i = 15;
+	}
+	public Base(int i){
+		System.out.println("Base Parameterized Constructor Called");
+		this.i = i;
+	}
+	public void printI(){
+		System.out.println(i);
+	}
+}
+
+class Derived extends Base{
+	int j;
+	
+	public Derived(int i, int j){
+		super(i);
+		System.out.println("Derived Constructor Called");
+		this.j = j;
+	}
+	
+	public void printIJ(){
+		System.out.println("I:" + i);
+		System.out.println("J:" + j);
+	}
+}
+```
+
+## 🌟 Method Overriding in Java
+
+### ✴️ Method Overriding
+
+- If the same method is defined in base class and derived class, the mechanism is termed as 'method overriding'.
+- If a childclass provides the specific implementation of the same method that has been declared by one of its parent class, it is known as method overriding.
+
+- To achieve runtime polymorphism.
+- It provides the specific implementation to the method that is inherited from the base class.
+
+`Condition:- `
+
+- The name of the methods should be same.
+- The parameter of the methods should be same.
+- The methods must be defined in the base class and derived class.
+- The access modifier in the derived class can be same or made broader but not narrower. That means a protected method of the base class can be made protected or public but not private.
+- A constructor cannot be overridden, as the name of constructor of base class would be different than the name of constructor of derived class.
+
+`Example:- `
+
+```java
+// Base class Animal
+class Animal {
+    public void makeSound() {
+        System.out.println("Generic animal sound.");
+    }
+}
+
+// Derived class Dog inheriting from Animal
+class Dog extends Animal {
+    // Method overriding - providing a specific implementation for makeSound() in Dog class
+    // @Override
+    public void makeSound() {
+        System.out.println("Dog barks: Woof! Woof!");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Animal genericAnimal = new Animal();
+        Dog dog = new Dog();
+
+        // Calling the makeSound() method on objects of both Animal and Dog classes
+        genericAnimal.makeSound(); // Output: Generic animal sound.
+        dog.makeSound();           // Output: Dog barks: Woof! Woof!
+    }
+}
+
+```
+
+### ✴️ Runtime Polymorphism
+
+`Example of Polymorphism`
+
+```java
+import java.util.Scanner;
+
+class MethodOverridingDemo2{
+	public static void main(String [] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter 1 to create Batsman and 2 to create Bowler");
+		int choice = sc.nextInt();
+		sc.close();
+		
+		Cricketer c;
+		if (choice == 1)
+			c = new Batsman("India","Rohit Sharma",4,2);
+		else 
+			c = new Bowler("India","Irfan Pathan",4,10);
+		c.print();
+	}
+}
+
+class Cricketer{
+	String countryName;
+	String playerName;
+	
+	public Cricketer(String countryName, String playerName){
+		this.countryName = countryName;
+		this.playerName = playerName;
+	}
+	
+	public void print(){
+		System.out.println("County Name:" + countryName);
+		System.out.println("Player Name:" + playerName);
+	}
+}
+
+class Batsman extends Cricketer{
+	int no50s;
+	int no100s;
+	
+	public Batsman(String countryName, String playerName, int no50s, int no100s){
+		super(countryName, playerName);
+		this.no100s = no100s;
+		this.no50s = no50s;
+	}
+	
+	public void print(){
+		super.print();
+		System.out.println("No of 50s:" + no50s);
+		System.out.println("No of 100s:" + no100s);
+	}
+}
+
+class Bowler extends Cricketer{
+		int wickets;
+		int runsGiven;
+		
+		public Bowler(String countryName, String playerName, int wickets, int runsGiven){
+			super(countryName, playerName);
+			this.wickets = wickets;
+			this.runsGiven = runsGiven;
+		}
+		public void print(){
+			super.print();
+			System.out.println("No. of Wickets Taken:" + wickets);
+			System.out.println("No of runs Given:" + runsGiven);
+		}
+}
+```
+
+## 🌟 'final' keyword in Java
+
+### ✴️ 'final' keyword
+
+`Use:- `
+
+- Variable: (Cannot modify the final variable)
+- Method: (Cannot override the final method) 
+- Class: (Cannot inherit the final class)
+
+### ✴️ Initializing 'final' Variable
+
+- It's compulsory to initialize a final variable.
+
+> There are three ways to do so:
+
+  - When the variable is declared.
+  - A blank final variable can be intialzed in initializer block or constructor.
+  - A blank static final variable can be initialized in static initializer block.
+
+
+### ✴️  'final' Variable:
+
+- A final variable is a constant whose value cannot be changed after initialization.
+
+`Example:- `
+
+```java
+public class FinalVariableExample {
+    public static void main(String[] args) {
+        final int constantValue = 100;
+        // constantValue = 200; // This will cause a compilation error because constantValue is final and cannot be changed.
+        System.out.println("Constant value: " + constantValue);
+    }
+}
+
+```
+
+### ✴️  'final' Method:
+
+- A final method is a method that cannot be overridden by subclasses. When a method is marked as final in the superclass, subclasses cannot provide a different implementation for that method.
+
+`Example:- `
+
+
+```java
+ class Parent {
+    public final void finalMethod() {
+        System.out.println("This method cannot be overridden.");
+    }
+}
+
+class Child extends Parent {
+    // Attempting to override finalMethod will cause a compilation error.
+    // public void finalMethod() { // Compilation error: Cannot override the final method from Parent
+    //     // Some implementation here
+    // }
+}
+
+public class FinalMethodExample {
+    public static void main(String[] args) {
+        Child childObj = new Child();
+        childObj.finalMethod();
+    }
+}
+
+```
+### ✴️  'final' Class:
+
+- A final class is a class that cannot be subclassed or extended. It prevents other classes from inheriting from it.
+
+`Example:- `
+
+
+```java
+  final class FinalClass {
+    // Some members and methods here
+}
+
+// Attempting to subclass FinalClass will cause a compilation error.
+// class Subclass extends FinalClass { // Compilation error: Cannot inherit from final FinalClass
+//     // Some members and methods here
+// }
+
+public class FinalClassExample {
+    public static void main(String[] args) {
+        // Code using the FinalClass here
+    }
+}
+
+```
+
+## 🌟 Introduction to Object Class in Java
+
+### ✴️  Object Class
+
+- Object class is the base of all the classes in Java
+
+`Example:- System Class, Scanner Class , String Class`
+
+- All the classes directly or indirectly are inherited from Object Class.
+
+`Example:- Object ▶️ Person ▶️ Student `
+
+- All objects, including arrays, implement the methods of this class.
+- It is declared in Java.lang.package. (default import not require import )
+
+
+## 🌟 toString() Method in Java
+
+### ✴️  To String
+
+- Used to provide a String representation of any object.
+- The default behaviour: Returns the name of class, "@" and the hash code of the object generated.
+- Whenever we print my object, it internally calls the toString() method of the class.
+
+`Explan :- `
+
+```java
+  Employee e = new Employee();
+  System.out.println(e);
+  System.out.println(e.toString());
+```
+
+
+`Example:- `
+
+```java
+      class Rectangle{
+	int length;
+	int width;
+	
+	public void set(int l, int w){
+		length = l;
+		width = w;
+	}
+	
+	/*public void print(){
+		System.out.println("Length: " + length);
+		System.out.println("Width: " + width);
+		
+	*/
+	
+	public String toString(){
+		String msg;
+		msg = "Length: " + length + " Width: " + width;
+		return msg;
+	}
+		
+	public static void main(String [] args){
+		Rectangle r = new Rectangle();
+		r.set(10,20);
+		
+		System.out.println(r);
+		
+	}
+}
+```
+## 🌟 hashCode() Method in Java
+
+### ✴️  Hash Code Methods
+
+- For every object, JVM generates a unique code.
+- If overriding hashCode(), then every object should return unique number.
+
+- *Example:- Employee class, we can return the employee id.*
+
+
+`Example:- `
+
+```java
+   class Student{
+    int rollNo;
+    String name;
+
+    public Student(int rollNo, String name){
+      this.rollNo = rollNo;
+      this.name = name;
+
+// 👉 use with student hashCode method to give output:- 101 Sumit
+      public String toString(){
+        return rollNo + name
+      }
+
+      // 👉 use with student hashCode method to give output:- 101
+      // public int hashCode() {
+      //   return rollNo;
+      // }
+    }
+
+    public static void main(String [] args){
+      Student s1 = new Student(101, "Sumit");
+      System.out.println(s1);  //output: Student@3fee733d
+      // String hash s1 = String.valueOf(s1.hashCode());
+ 
+      // System.out.println(Integer.toHexString(s1.hashCode));  //output:- 3fee733d
+      System.out.println(s1.hashCode());  //output:- 65 
+    }
+   }
+```
+## 🌟 Equals() Method in Java
+
+### ✴️  Equals Method
+
+- It compares the given object to the current object.
+
+`Example:- `
+
+```java
+
+class Rectangle{
+	int length;
+	int width;
+	
+	Rectangle(int length, int width)
+	{
+		this.length = length;
+		this.width = width;
+	}
+	
+	public String toString(){
+		return "Length:" + length + " Width: " + width;
+	}
+	
+	public boolean equals(Object obj){
+		Rectangle r = (Rectangle) obj;
+		if ((this.length == r.length) && (this.width == r.width))
+			return true;
+		return false;
+	}
+	
+	
+	public static void main(String [] args){
+		Rectangle r1 = new Rectangle(10, 20);
+		Rectangle r2 = new Rectangle(10, 20);
+		//Rectangle r3 = r1;
+		if (r1.equals(r2))
+			System.out.println("Both are Equal");
+		else
+			System.out.println("Both are Different");
+
+      // 👉 work with primitive data types
+		
+		/*String s1 = "Hello";
+		String s2 = new String("Hello");
+		
+		if (s1 == s2)
+			System.out.println("Both are Equal");
+		else
+			System.out.println("Both are Different");*/
+	}
+}
+	
+```
+## 🌟 clone() Method in Java
+
+### ✴️  Method of Object Class 
+
+-  **Clone()**
+
+- Creates and returns a copy of the object
+
+- The Java.lang.Cloneable interface must be implemented by the class, whose object clone we want to create.
+
+`Example:- `
+
+```java
+class Rectangle implements Cloneable{
+	int length;
+	int width;
+	
+	public Rectangle(int length, int width){
+		this.length = length;
+		this.width = width;
+	}
+	
+	public String toString(){
+		return "Length: " + length + " Width: " + width;
+	}
+	
+	public static void main(String [] args){
+		Rectangle r1 = new Rectangle(10,20);
+		try{
+			Rectangle r2 = (Rectangle) r1.clone();
+			System.out.println(r1);
+			System.out.println(r2);
+		
+			r2.length = 35;
+			System.out.println("After Modifying R2 - length");
+		
+			System.out.println(r1);
+			System.out.println(r2);
+		}
+		catch(CloneNotSupportedException ce){
+			System.out.println(ce);
+		}
+		
+	}
+		
+}
+
+```
+## 🌟 getClass() Method in Java
+
+### ✴️  Method of Object Class 
+
+- **getClass()**
+
+- Returns the object of Class for the current object.
+- Class objects are constructed automaticallyby the Java Virtual Machine and is Final.
+- public final Class<?>getClass()   
+
+`Class Class has the flowing methods:- `   
+  - ▶️ getConstructors()
+  - ▶️ getFields()
+  - ▶️ getMethods()
+  - ▶️ getName()
+  - ▶️ getSuperclass()
+  - ▶️ getInterfaces()
+
+
+  `Example:- GetClass`
+
+  ```java
+      class GetClassDemo{
+        public static void main(String args[]){
+          GetClassDemo obj = new GetClassDemo();
+          String className = obj.getClass().getSuperClass().getName();
+          System.out.println(className);
+          System.out.println(className.getClass().getName());
+        }
+      }
+  ```
+
+## 🌟 finalize() Method in Java
+
+### ✴️  Method of Object Class 
+
+- **finalize()**
+
+- This method is called just before an object is garbage collected.
+
+- finalize() method is overridden to dispose of system resources, perform clean-up activities and minimize memory leaks.
+
+- **protected void finalize() throws Throwable**
+
+- **wait(), notify(), notifyAll()**
+
+- These methods are used for interthread communication.
+
+`Example:- `
+
+```java
+   class FinalizeDemo{
+    protected void finalize(){
+       System.out.println("Finalize Method is called);
+    }
+
+    public FinalizeDemo(){
+       System.out.println("FinalizeDemo is created);
+
+    }
+     public static void main(String args[]){
+      FinalizeDemo obj = new FinalizeDemo();
+
+      obj = null;
+      System.gc();
+      System.out.println("Main Exiting");
+     }
+   }
+   
+```
 
 
 
