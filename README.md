@@ -2676,6 +2676,247 @@ class Rectangle implements Cloneable{
    
 ```
 
+---
+---
+# Abstract Class And Interface
 
+## 🌟 Abstract Classes and Methods in Java
 
+### ✴️  Abstract Class
+
+- It is the Class whose object cannot be created. It cannot be instantiated.
+- To create an abstract Class, use 'abstract' keyword
+- An abstract Class can have abstract method as well as regular (non-abstract) methods.
+- Constructors are allowed.
+- We can have an abstract Class without any abstract method.
+
+### ✴️  Abstract method
+
+- A method which is declared as abstract and does not have implementation is known as an abstract method.
+- The implementation of abstract Class is given by its sub Class.
+- If a Class contains an abstract method, then the Class should be declared abstract. Otherwise, it will generate an error
+
+`Example:- `
+
+```java
+    // Abstract class
+abstract class Shape {
+    private String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    // Abstract method
+    public abstract double calculateArea();
+}
+
+// Concrete subclass
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Concrete subclass
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(String color, double width, double height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return width * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle("Red", 5.0);
+        Rectangle rectangle = new Rectangle("Blue", 4.0, 6.0);
+
+        System.out.println("Circle area: " + circle.calculateArea());
+        System.out.println("Rectangle area: " + rectangle.calculateArea());
+    }
+}
+
+```
+
+## 🌟 Abstract Class and Final Class in Java
+
+### ✴️  Abstract and Final
+
+- An abstract Class/method cannot be made final.
+- Both are mutually exclusive concepts.
+- To create an abstract class, use 'abstract' keyword.
+- An abstract Class can have abstract method as well as regular (non-abstract) methods.
+
+### ✴️  Abstract and Final Difference Between
+
+| S.No. | ABSTRACT ClASS            |  Final Class  | 
+|-------|-------------------------- |---------------|
+| 1.    | Uses the **"abstract"** key word. | Uses the **"Final"** key word|
+| 2.    | This helps to achieve abstraction | This helps to restrict other classes from accessing its properties and methods.|
+| 3.    | For later use, all the abstract methods should be overridden | Overriding concept does not arise as final class cannot be inherited |
+| 4.    | A few methods can be implemented and a few cannot | All methods should have implementation |
+| 5.    | Cannot create immutable objects (infact, no objects can be created) | Immutable objects can be created (eg. String class) |
+| 6.    | Abstract class methods functionality can be altered in subclass | Final class methods should be used as it is by other classes |
+| 7.    | Can be inherited | Cannot be inherited |
+| 8.    | 	Cannot be instantiated | Can be instantiated |
+| 9.    | 	Abstract class may have final methods. | Final class does not have abstract methods or final methods. |
+| 10.    | 	Abstract class  helps in to achieve Abstraction. | Final class can help to restrict the other classes from accessing the properties and methods. |
+
+## 🌟 Interface in Java
+
+### ✴️  Interface
+
+- Used to define the behavior of the Class.
+- Termed as blueprint of a Class Represents IS-A relationship.
+- It consists of: 
+   - ▶️ Static constants
+   - ▶️ Abstract methods.
+- All the methods would be abstract.
+- It is Used to achieve multiple inheritance.
+- A Class can inherit multiple interfaces.
+- Interface must specify what a class should do and not how to do.
+- If a Class implements the interface, then it should implement all the method declared int the interface, or else the class should be declared as abstract.
+
+### ✴️ Syntax And Example of Interface
+
+- Interface data members are public, static and final by default and the methods are public and abstract by default.
+
+`Syntax:- `   
+
+```java
+    interface Ihello{
+        int no;
+        void f1();
+    }
+
+    🔃 compiler
+
+    interface Ihello{
+       public static final int no;
+       public abstract void f1();
+    }
+```
+
+`Example:- `
+
+```java
+  // Define an interface named "Drawable"
+interface Drawable {
+    void draw(); // Abstract method without implementation
+}
+
+// Implement the interface in a class
+class Circle implements Drawable {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle with radius " + radius);
+    }
+}
+
+class Square implements Drawable {
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a square with side " + side);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Drawable circle = new Circle(5.0);
+        Drawable square = new Square(4.0);
+
+        circle.draw(); // Calling the draw method of Circle class
+        square.draw(); // Calling the draw method of Square class
+    }
+}
+
+```
+
+### ✴️ Relationship b/w Class and Interface
+
+```java
+         Class                 intreface                  interface
+           ⬆️                       ⬆️                          ⬆️
+           ⬆️                       ⬆️                          ⬆️  
+           ⬆️ 🔀 extends            ⬆️ 🔀 implements            ⬆️ 🔀 extends
+           ⬆️                       ⬆️                          ⬆️   
+           ⬆️                       ⬆️                          ⬆️
+         Class                   Class                    interface
+           
+```
+   
+### ✴️ Interface in Java 8
+
+- Default implementation of methods could be given in an interface.
+- Static methods could be defined in the interface and can be called independently without an object, directly with reference of interface.
+
+`Example:- `  
+
+```java
+  // Define an interface with default and static methods
+interface MyInterface {
+    // Abstract method
+    void abstractMethod();
+
+    // Default method with an implementation
+    default void defaultMethod() {
+        System.out.println("This is a default method in MyInterface.");
+    }
+
+    // Static method with an implementation
+    static void staticMethod() {
+        System.out.println("This is a static method in MyInterface.");
+    }
+}
+
+// Implement the interface
+class MyClass implements MyInterface {
+    @Override
+    public void abstractMethod() {
+        System.out.println("Abstract method implementation in MyClass.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass myClass = new MyClass();
+        myClass.abstractMethod(); // Call the overridden abstract method
+        myClass.defaultMethod();  // Call the default method from the interface
+        MyInterface.staticMethod(); // Call the static method from the interface
+    }
+}
+```
 ---
