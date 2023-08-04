@@ -2919,4 +2919,105 @@ public class Main {
     }
 }
 ```
+## 🌟 Example of Interface in Java
+
+`Example:- `
+
+
+```java
+
+   public interface Account {
+    double getBalance();
+    void deposit(double amount);
+    void withdraw(double amount);
+}
+
+// 👉 Saving Account
+
+
+public class SavingsAccount implements Account {
+    private double balance;
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+}
+
+// 👉 Checking Account
+
+public class CheckingAccount implements Account {
+    private double balance;
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+}
+
+
+// 👉 Banking Account
+
+
+public class BankingApp {
+    public static void main(String[] args) {
+        Account savingsAccount = new SavingsAccount();
+        Account checkingAccount = new CheckingAccount();
+
+        savingsAccount.deposit(1000);
+        checkingAccount.deposit(1500);
+
+        savingsAccount.withdraw(200);
+        checkingAccount.withdraw(300);
+
+        System.out.println("Savings Account Balance: " + savingsAccount.getBalance());
+        System.out.println("Checking Account Balance: " + checkingAccount.getBalance());
+    }
+}
+```
+
+## 🌟 Difference Between Abstract Class and Interface in Java
+
+### ✴️ Interface And Abstract Class
+
+
+| S.No. | Abstract Class            |  Interface  | 
+|-------|-------------------------- |---------------|
+| 1.    | Abstract Class can have abstract and non-abstract methods | Interface can have only abstract methods. Since Java 8, it can have default and static methods also |
+| 2.    | Abstract Class doesn't support multiple interitance. | Interface supports multiple inheritance |
+| 3.    | Abstract Class can have final. non-final, static and non-static variables. | Interface has only static and final variables. |
+| 4.    | Abstract Class can provide the implementation of interface. | Interface can't provide the implementaion of abstract Class. |
+| 5.    | A Java abstract Class can have Class members like private , protected etc. | Members of a Java interface are public by default. |
+| 6.    | It can contain constructor | It cannot contain constructor |
+
+
+
 ---
