@@ -3018,6 +3018,156 @@ public class BankingApp {
 | 5.    | A Java abstract Class can have Class members like private , protected etc. | Members of a Java interface are public by default. |
 | 6.    | It can contain constructor | It cannot contain constructor |
 
+---
+---
 
+# Packages in Java
+
+## 🌟  Packages in Java
+
+- Package in Java is a mechanism to encapsulate a group of classes, sub packages and interfaces
+
+### ✴️ Packages Used
+
+- Preventing naming conflicts. For example there can be two classes with name Employee in two packages, college.staff.cse.Employee and college.staff.ee.Employee
+- Making searching/locating and usage of classes, interfaces, enumerations and annotations easier
+- Providing controlled access: protected and default have package level access control. A protected member is accessible by classes in the same package and its subclasses. A default member (without any access specifier) is accessible by classes in the same package only.
+- Packages can be considered as data encapsulation (or data-hiding).
+
+### ✴️ Types of Packages
+
+1. *User Defined Packages*
+2. *In Built Packages*  
+
+
+### ✴️ Built-in Packages
+
+- ↪️ These packages consist of a large number of classes which are a part of Java API.Some of the commonly used built-in packages are:  
+
+1. java.lang: Contains language support classes(e.g classed which defines primitive data types, math operations). This package is automatically imported.
+2.  java.io: Contains classed for supporting input / output operations.
+3.  java.util: Contains utility classes which implement data structures like Linked List, Dictionary and support ; for Date / Time operations.
+4.  java.applet: Contains classes for creating Applets.
+5.  java.awt: Contain classes for implementing the components for graphical user interfaces (like button , ;menus etc).
+6.  java.net: Contain classes for supporting networking operations.
+
+### ✴️ User-defined packages
+
+- These are the packages that are defined by the user. First we create a directory myPackage (name should be same as the name of the package). Then create the MyClass inside the directory with the first statement being the package names.
+
+`Example:- `
+
+```java
+     // Name of the package must be same as the directory
+// under which this file is saved
+package myPackage;
+
+public class MyClass
+{
+    public void getNames(String s)
+    {        
+        System.out.println(s);        
+    }
+}
+
+// ⏬  Now we can use the MyClass class in our program.
+
+/* import 'MyClass' class from 'names' myPackage */
+import myPackage.MyClass;
+
+public class PrintName 
+{
+   public static void main(String args[]) 
+   {       
+      // Initializing the String variable 
+      // with a value 
+      String name = "GeeksforGeeks";
+      
+      // Creating an instance of class MyClass in 
+      // the package.
+      MyClass obj = new MyClass();
+      
+      obj.getNames(name);
+   }
+}
+
+```
+
+## 🌟  User-Defined Packages in Java
+
+### ✴️ Naming Convention
+
+- Java uses a file system directory to store packages/classes.
+
+`Suppose a package name is:- `
+   - suberiq.computerscience.java, then there are three directories: suberiq, computerscience and java, such that java is present in computerscience and computerscience is present in suberiq.
+
+- Packages that are inside another package are the subpackages.
+
+### ✴️ Creating a Package
+
+- The package keyword is used to create a package.
+- It has to be the first statement in the file, followed by import statement is any.
+
+- Compile the package alongwith the option "-d."
+   - The -d keyword specifies destination where to save the class file. Any directory name, like c:/user(windows) can be given or to keep the package within the same directory, use the dot sign "."
+
+- Run the file, with packagename.classname
+
+
+### ✴️ Import a Package
+
+- Packages can be imported as:
+   - ▶️ Static
+   - ▶️ Non-Static
+
+### ✴️ Static Import 
+
+- Introduced in Java 5
+- Allows the public static members defined in a class to be used in without specifying the class in which the field is defined.
+
+`Syntax:- `
+
+```java
+  import static java.lang.System.*;
+  out.println(....);
+```
+
+### ✴️ Non-Static Access of Package
+
+- import package.*
+- import package.classname
+- Fully qualified name
+
+### ✴️ import package.*
+
+- Imports all the public classes/interfaces
+- Sub-packages are not imported
+- Fully qualified name
+
+### ✴️ import package.classname
+
+- Import a single class from the package that is declared.
+
+### ✴️ Using fully qualified name
+
+- No import statement is written.
+- On every usage, use a fully qualified name.
+- java.util.Date = new java.util.Date();
+
+
+## 🌟  Packages and Access Specifiers in Java
+
+### ✴️ Access Specifier
+
+
+|                  | Same Class    | Same Package, inherited Class  | Same Package, Stand-alone Class | Another package, inherited class | Another package, Stand-alone Class |
+|----------------  | ------------- | ------------------------------ | ------------------------------ | -------------------------------   |--------------------|
+| **Private**      |      Y        |      N                         |           N                    |      N                            |          N         | 
+| **Default**      |      Y        |      Y                         |           Y                    |      N                            |          N         | 
+| **Protected**    |      Y        |      Y                         |           Y                    |      Y                            |          N         |
+| **Public**       |      Y        |      Y                         |           Y                    |      Y                            |          Y         |
 
 ---
+
+
