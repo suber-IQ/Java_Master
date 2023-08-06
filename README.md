@@ -3170,4 +3170,843 @@ public class PrintName
 
 ---
 
+---
+# Exception Handling in Java
+
+## 🌟  Exception Handling in Java
+
+### ✴️ Exception Handling
+
+- In a program, error can occur due to: coding errors made by the programmer,errors due to wrong input,or other unforeseeable things.
+
+- When an error occurs, Java will normally stop and generate an error message.(throw an exception)
+
+- Exception handling is one of the most important feature of java programming that allows us to handle the runtime errors caused by exceptions.
+
+
+### ✴️ Exception 
+
+- An unwanted event that interrupts the normal flow of the program.
+- It terminates the normal execution of the program.
+- When exception is generated, an object is generated.
+- This object is called the exception object.
+- It contains information about the exception such as the name and description of the exception and the state of the program when the exception occurred.
+### ✴️ Reasons of Exception
+
+- *️⃣ Invalid user input
+- *️⃣ Device failure
+- *️⃣ Network issue
+- *️⃣ Code error
+- *️⃣ Memory limitations
+- *️⃣ Invalid File Handling
+
+
+`Example:- `
+
+```java
+    class Demo{
+      int a[] = new int[5];
+      public void set(){
+            for(int i = 0; i < 5; i++){
+                  a[i] = i + 2;
+            }
+      }
+      public void print(){
+            for(int i = 0; i <= 5; i++){
+                System.out.println(a[i]);  
+            }
+      }
+
+      public static void main(String[] args){
+            Demo obj = new Demo();
+            obj.set();
+            // obj.a[0] = 20;
+            // System.out.println("Setting of a[0] done");
+            // obj.a[25] = 30;
+            // System.out.println("Setting of a[25] done"); 
+            try {
+                  
+                  obj.print();
+            } catch (Exception e) {
+                  // TODO: handle exception
+                  System.out.println("After Calling Print Methods");
+            }
+      }
+}
+```
+### ✴️ Advantages of Exception Handling
+
+- It maintains the normal flow of execution.
+- User-friendly message could be given to the user.
+
+
+## 🌟  'try', 'catch' and 'finally' Keywords for Exception Handling
+
+### ✴️ Keywords for Exception Handling
+
+1. Try
+2. Catch
+3. Finally
+4. Throw
+5. Throws
+
+### ✴️ 'try' Keyword
+
+- A block containing the statements that may generate exception.
+- Cannot be used without catch/finally.
+
+`Syntax:- `
+
+```java
+    try{
+       // statement that may cause an exception
+    }
+```
+### ✴️ 'catch' Keyword
+
+- A block that handles the exception.
+- Must be preceded by try block.
+- May be followed by finally block.
+
+`Syntax:- `
+
+```java
+    try{
+       // statement that may cause an exception
+    }catch(exception(type)  e(object)){
+      // error handling code
+    }
+```
+
+### ✴️ 'finally' Keyword
+
+- A block containing code that is mandatory to get executed.
+- Whether exception occurs or not, finally block always gets executed.
+
+`Syntax:- `
+
+```java
+    try{
+       // statement that may cause an exception
+    }catch(exception(type)  e(object)){
+      // error handling code
+    }finally{
+      // Statement to be executed
+    }
+```
+
+
+`Example of try-catch-finally:- `
+
+```java
+    public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int numerator = 10;
+            int denominator = 0;
+            int result = numerator / denominator; // This will cause an ArithmeticException
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+    }
+}
+```
+## 🌟  'throw' and 'throws' Keywords for Exception Handling
+
+### ✴️ 'throw' Keyword
+
+- It is used to throw an exception.
+- It may generate exception object if required and then throw.
+
+
+`Syntax:- `
+
+```java
+      try{
+        if(condition)
+             throw new Exception;
+      }catch(exception(type) e(object)){
+        // error handling code
+      }
+```
+
+`Example of Throw:- `
+
+```java
+  public class CustomExceptionExample {
+    static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Age is too young!"); // Throws a custom exception
+        }
+        System.out.println("Age is valid.");
+    }
+
+    public static void main(String[] args) {
+        try {
+            int age = 15;
+            checkAge(age);
+        } catch (ArithmeticException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+
+```
+### ✴️ 'throws' Keyword
+
+- The **'throws'** keyword is used to declare exceptions.
+- It specifies that there may occur an exception in the method.
+
+`Syntax:- `
+
+```java
+   returnType methodName(parameters) throws ExceptionType1, ExceptionType2, ... {
+    // Method implementation
+}
+
+```
+
+`Example of Throws:- `
+
+```java
+  import java.io.FileReader;
+import java.io.IOException;
+
+public class ThrowsExample {
+    static void readFile(String filename) throws IOException {
+        FileReader reader = new FileReader(filename);
+        // ... code to read the file
+        reader.close();
+    }
+
+    public static void main(String[] args) {
+        String filename = "nonexistent.txt";
+        try {
+            readFile(filename);
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```
+
+
+## 🌟  Add and End Keywords for Exception Handling
+
+### ✴️ Exception Handling keywords
+
+- Can a try block have multiple catch block? **(yes)**
+
+`Example:- `
+
+```java
+   public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0); // Add: Code that might throw an exception
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            // Add: Code to handle ArithmeticException
+            System.out.println("An arithmetic exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            // Add: Code to handle other types of exceptions
+            System.out.println("An exception occurred: " + e.getMessage());
+        } finally {
+            // Add: Code to be executed regardless of whether an exception occurred
+            System.out.println("Finally block executed.");
+        }
+
+        // End: Rest of the program
+        System.out.println("Program continues...");
+    }
+
+    public static int divide(int dividend, int divisor) {
+        return dividend / divisor;
+    }
+}
+
+
+```
+
+
+## 🌟  Exceptions Hierarchy in Java
+
+
+### ✴️ Hierarchy & Types of Exception
+
+`Exception Hierarchy:- `
+
+```java
+                       Object
+                         ⬇️
+                     Throwable 
+          _______________⬇️_________________________ 
+          ⬇️                                       ⬇️ 
+      Exception                                 Error  
+         |                                       |
+         |                                       |
+         |➡️ IOException                          |➡️ StackOverflowException
+         |                                       |
+         |                                       |➡️ VirtualMachineException
+         |                                       |
+         |➡️ SQLException                         |➡️ OutofMemoryException
+         |                                       |
+         | 
+          ⤵
+   RuntimeException
+    ______⬇️_________________________________________________
+    ⬇️                           ⬇️                          ⬇️
+  ArithmeticException     NullPointerException       NumberFormatException
+
+```
+### ✴️ Methods of Exceptions
+
+- ▶️ public String getMessage()   
+   - This method returns a detailed description of the exception.
+- ▶️ public Throwable getCause()   
+   - This method returns the cause of the exception, if available.
+- ▶️ public void printStackTrace()   
+   - This method prints the stack trace of the exception, showing where the exception occurred in the code.
+- ▶️ public StackTraceElement[] getStackTrace()   
+   - This method returns an array of StackTraceElement objects, each representing a frame in the stack trace.
+- ▶️ public Throwable FillInStackTrace()  
+   - This method fills in the stack trace of the exception with the current stack trace, allowing you to change the point at which the exception was thrown  
+
+
+`Example of public String getMessage():- `
+
+```java
+    
+    public class ExceptionMessageExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            String errorMessage = e.getMessage();
+            System.out.println("Error message: " + errorMessage);
+        }
+    }
+}
+ 
+```
+
+`Example of public Throwable getCause():- `
+
+```java
+    public class ExceptionCauseExample {
+    public static void main(String[] args) {
+        try {
+            FileInputStream file = new FileInputStream("nonexistent.txt");
+        } catch (FileNotFoundException e) {
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause);
+            }
+        }
+    }
+}
+```
+
+`Example of public void printStackTrace():- `
+
+```java
+  public class PrintStackTraceExample {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[3];
+            System.out.println(arr[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+    }
+}
+ 
+```
+`Example of public StackTraceElement[] getStackTrace():- `
+
+```java
+ public class GetStackTraceExample {
+    public static void main(String[] args) {
+        try {
+            throw new IllegalArgumentException("Custom exception");
+        } catch (IllegalArgumentException e) {
+            StackTraceElement[] stackTrace = e.getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                System.out.println("at " + element.getClassName() +
+                                   "." + element.getMethodName() +
+                                   "(" + element.getFileName() +
+                                   ":" + element.getLineNumber() + ")");
+            }
+        }
+    }
+}
+
+ 
+```
+`Example of public Throwable fillInStackTrace():- `
+
+```java
+public class FillInStackTraceExample {
+    public static void main(String[] args) {
+        try {
+            throw new CustomException("Custom message");
+        } catch (CustomException e) {
+            Throwable updatedException = e.fillInStackTrace();
+            updatedException.printStackTrace();
+        }
+    }
+}
+
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+```
+
+## 🌟  Types of Exceptions in Java
+
+
+### ✴️ Types of Exception
+
+- ▶️ Checked Exception
+- ▶️ Unchecked Exception
+### ✴️ Checked Exceptions
+
+- These are called compile-time excecptions because these exceptions are checked at compile-time by the compiler.
+### ✴️ Unchecked Exceptions
+
+- These exceptions are not checked at compile-time by the compiler.
+
+- The programmer can handle the exception; there is no compulsion.
+
+`Hierarchy:- `
+
+```java
+                   
+      Exception  (Checked Exception)                              
+         |                                       
+         |                                       
+         |➡️ IOException                         
+         |➡️ ClassNotFoundException                                       
+         |➡️ InterruptedException                                       
+         |➡️ InstantiationException                                       
+         |➡️ SQLException                         
+         |➡️ FileNotFoundException                                       
+         | 
+         |
+          ⤵
+           ⤵
+   RuntimeException (Unchecked Exception)
+         |                                    
+         |                                       
+         |➡️ ArithmeticException                         
+         |➡️ NullPointerException                                       
+         |➡️ NumberFormatException                                       
+         |➡️ ClassCastException                                        
+         |➡️ ArrayIndexOutOfBoundsException                         
+         |➡️ ArrayStoreException                                        
+         |➡️ IllegalArgumentException
+         |➡️ ConcurrentModificationException  
+         |➡️ UnsupportedOperationException  
+ 
+```
+
+#### ⏩🌠Checked Exceptions (Compile-Time Exceptions):🌠
+
+1. **IOException**: Represents input/output errors, such as file not found or disk full.
+
+   `Example:- `
+
+```java
+    import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class IOExceptionExample {
+    public static void main(String[] args) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("nonexistent.txt"));
+            String line = reader.readLine();
+            System.out.println(line);
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An I/O error occurred: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+2. **FileNotFoundException**: A subtype of IOException, indicating that a specified file could not be found.
+
+   `Example:- `
+
+```java
+   import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+
+public class FileNotFoundExceptionExample {
+    public static void main(String[] args) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("nonexistent.txt"));
+            String line = reader.readLine();
+            System.out.println(line);
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("An I/O error occurred: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+3. **ParseException**: Thrown when there's an error during parsing, usually with dates or numbers.
+
+   `Example:- `
+
+```java
+  import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ParseExceptionExample {
+    public static void main(String[] args) {
+        String dateString = "2021-08-06";
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            Date date = dateFormat.parse(dateString);
+            System.out.println(date);
+        } catch (ParseException e) {
+            System.out.println("Parsing error: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+4. **SQLException**: Represents database access errors.
+
+   `Example:- `
+
+```java
+  import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class SQLExceptionExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/nonexistentdb";
+        try {
+            Connection connection = DriverManager.getConnection(url, "username", "password");
+            System.out.println("Connected to database");
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+5. **ClassNotFoundException**: Thrown when trying to load a class that doesn't exist at runtime.
+
+   `Example:- `
+
+```java
+public class ClassNotFoundExceptionExample {
+    public static void main(String[] args) {
+        try {
+            Class<?> clazz = Class.forName("NonExistentClass");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+6. **InterruptedException**: Thrown when a thread is interrupted while it's waiting or sleeping.
+
+   `Example:- `
+
+```java
+   public class InterruptedExceptionExample {
+    public static void main(String[] args) {
+        Thread thread = new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted: " + e.getMessage());
+            }
+        });
+
+        thread.start();
+        thread.interrupt();
+    }
+}
+
+```
+
+7. **NoSuchMethodException**: Thrown when trying to access a method that doesn't exist.
+
+   `Example:- `
+
+```java
+import java.lang.reflect.Method;
+
+public class NoSuchMethodExceptionExample {
+    public static void main(String[] args) {
+        try {
+            Class<?> clazz = String.class;
+            Method method = clazz.getMethod("nonExistentMethod");
+        } catch (NoSuchMethodException e) {
+            System.out.println("Method not found: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+#### ⏩🌠 Unchecked Exceptions (Runtime Exceptions):🌠
+
+1. **NullPointerException**: Thrown when trying to access a null reference.
+
+   `Example:- `
+
+```java
+  public class NullPointerExceptionExample {
+    public static void main(String[] args) {
+        String text = null;
+        try {
+            int length = text.length(); // This will throw NullPointerException
+        } catch (NullPointerException e) {
+            System.out.println("Null pointer: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+2. **ArithmeticException**: Thrown when an arithmetic operation results in an error, like division by zero.
+
+   `Example:- `
+
+```java
+  public class ArithmeticExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic error: " + e.getMessage());
+        }
+    }
+}
+
+
+```
+
+3. **ArrayIndexOutOfBoundsException**: Thrown when trying to access an invalid index in an array.
+
+   `Example:- `
+
+```java
+  public class ArrayIndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3 };
+        try {
+            int value = arr[5]; // This will throw ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index out of bounds: " + e.getMessage());
+        }
+    }
+}
+
+
+
+```
+
+
+4. **IndexOutOfBoundsException**: General exception for out-of-bounds access in collections.
+
+   `Example:- `
+
+```java
+import java.util.ArrayList;
+
+public class IndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        try {
+            int value = list.get(0); // This will throw IndexOutOfBoundsException
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index out of bounds: " + e.getMessage());
+        }
+    }
+}
+```
+
+5. **IllegalArgumentException**: Thrown when an illegal argument is passed to a method.
+
+   `Example:- `
+
+```java
+import java.util.ArrayList;
+
+public class IndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        try {
+            int value = list.get(0); // This will throw IndexOutOfBoundsException
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index out of bounds: " + e.getMessage());
+        }
+    }
+}
+```
+
+6. **ClassCastException**: Thrown when an object is cast to an incompatible class.
+
+
+   `Example:- `
+
+```java
+public class ClassCastExceptionExample {
+    public static void main(String[] args) {
+        try {
+            Object obj = "Hello";
+            Integer num = (Integer) obj; // This will throw ClassCastException
+        } catch (ClassCastException e) {
+            System.out.println("Class cast error: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+7. **NumberFormatException**: Thrown when trying to convert a string to a numeric type, but the format is incorrect.
+
+   `Example:- `
+
+```java
+public class NumberFormatExceptionExample {
+    public static void main(String[] args) {
+        try {
+            String str = "abc";
+            int value = Integer.parseInt(str); // This will throw NumberFormatException
+        } catch (NumberFormatException e) {
+            System.out.println("Number format error: " + e.getMessage());
+        }
+    }
+}
+
+
+```
+
+
+8. **ConcurrentModificationException**: Thrown when a collection is modified concurrently while being iterated.
+
+   `Example:- `
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ConcurrentModificationExceptionExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        Iterator<Integer> iterator = numbers.iterator();
+
+        try {
+            while (iterator.hasNext()) {
+                Integer number = iterator.next();
+                numbers.remove(number); // This will throw ConcurrentModificationException
+            }
+        } catch (ConcurrentModificationException e) {
+            System.out.println("Concurrent modification error: " + e.getMessage());
+        }
+    }
+}
+
+
+```
+
+9. **UnsupportedOperationException**: Thrown when an unsupported operation is invoked on an object.
+
+   `Example:- `
+
+```java
+  import java.util.Collections;
+import java.util.List;
+
+public class UnsupportedOperationExceptionExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Collections.emptyList();
+
+        try {
+            numbers.add(1); // This will throw UnsupportedOperationException
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Unsupported operation: " + e.getMessage());
+        }
+    }
+}
+
+```
+## 🌟  Custom Exception in Java
+
+### ✴️ Custom Exception
+
+- To define a custom Exception - Checked: Inherit the exception class and create your own class.
+
+- To define a custom Exception - Unchecked: Inherit the the RuntimeException class and create your own class.
+
+   `Example:- `
+
+```java
+import java.util.Scanner;
+class InvalidRollNoException extends RuntimeException{
+	public String toString(){
+		return "Roll Number should be of range 1 to 75";
+	}
+}
+
+class Student{
+	int rollNo;
+	String name;
+	
+	public Student(int rollNo, String name){
+		try{
+			if ((rollNo <= 0) || (rollNo > 75))
+				throw new  InvalidRollNoException();
+			this.rollNo = rollNo;
+			this.name = name;
+		}
+		catch(InvalidRollNoException ire){
+			System.out.println(ire);
+		}
+	}
+	
+	public static void main(String [] args){
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Please enter RollNo and Name");
+			int r = sc.nextInt();
+			String nm = sc.next();
+		
+			Student s = new Student(r,nm);
+				
+			System.out.println("One Object is Created");
+	}
+}
+			
+```   
+---
 
