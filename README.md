@@ -4005,8 +4005,7 @@ class Student{
 				
 			System.out.println("One Object is Created");
 	}
-}
-			
+}			
 ```   
 ---
 
