@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/02_Started_with_Java" isTestSource="false" packagePrefix="Started_with_Java" />
+      <sourceFolder url="file://$MODULE_DIR$/03_Fundamentals_of_Java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/04_Control_Structure_java" isTestSource="false" packagePrefix="Control_Structure_java" />
+      <sourceFolder url="file://$MODULE_DIR$/05_Arrays_in_Java" isTestSource="false" packagePrefix="Arrays_in_Java" />
+      <sourceFolder url="file://$MODULE_DIR$/06_Methods_in_Java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/07_Objects_&amp;_Classes_in_Java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/08_Inheritance_in_Java" isTestSource="false" packagePrefix="Inheritance_in_Java" />
+      <sourceFolder url="file://$MODULE_DIR$/09_Abstract_Class_And_Interface_In_Java" isTestSource="false" packagePrefix="Abstract_Class_And_Interface_In_Java" />
+      <sourceFolder url="file://$MODULE_DIR$/10_Packages_in_Java" isTestSource="false" packagePrefix="Packages_in_Java" />
+      <sourceFolder url="file://$MODULE_DIR$/11_Exception_Handling_in_Java" isTestSource="false" packagePrefix="Exception_Handling_in_Java" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
