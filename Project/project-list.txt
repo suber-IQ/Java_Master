@@ -1,0 +1,114 @@
+👉 Basic Projects
+
+Hello World Program
+Basic Calculator
+Simple Interest Calculator
+Temperature Converter
+Grade Calculator
+Palindrome Checker
+Factorial Calculator
+Fibonacci Series Generator
+Prime Number Checker
+Armstrong Number Checker
+Binary to Decimal Converter
+Decimal to Binary Converter
+Leap Year Checker
+Reverse a String
+Count Vowels and Consonants
+Sum of Digits
+Multiplication Table Generator
+Find GCD and LCM
+ASCII Value Finder
+Simple Login System
+
+👉 Intermediate Projects
+
+Tic Tac Toe Game
+Bank Account Management System
+Library Management System
+Student Management System
+Address Book
+Text-based Adventure Game
+Simple Quiz Game
+Hangman Game
+Rock, Paper, Scissors Game
+Simple Chat Application
+Maze Solver
+Currency Converter
+Unit Converter
+BMI Calculator
+Mini ATM System
+Simple E-commerce System
+Command Line Todo List
+File Encryption and Decryption
+Simple HTTP Server
+Basic Text Editor
+
+👉 Advanced Projects
+
+Hospital Management System
+Hotel Reservation System
+Inventory Management System
+School Management System
+Parking Management System
+Event Management System
+Online Examination System
+Payroll Management System
+Airline Reservation System
+Bus Reservation System
+Railway Reservation System
+Job Portal System
+Online Voting System
+Car Rental System
+Insurance Management System
+Expense Tracker
+Customer Relationship Management (CRM) System
+Content Management System (CMS)
+Library Catalog System
+Billing System
+
+👉 Expert Projects
+
+Personal Finance Management System
+Weather Forecast Application
+Simple Compiler
+Online Banking System
+Social Media Simulator
+Stock Market Simulator
+News Aggregator
+Recipe Management System
+Fitness Tracker
+Portfolio Management System
+Event Ticket Booking System
+Document Management System
+Online Shopping System
+Asset Management System
+Student Attendance System
+Appointment Scheduler
+Remote File Server
+Online Auction System
+Virtual Classroom System
+Loan Management System
+
+👉 Master Projects
+
+Chatbot
+AI-based Personal Assistant
+Music Player
+Video Streaming Server
+Image Processing Application
+Voice Recognition System
+E-learning Platform
+Cloud Storage System
+Blockchain-based Application
+Machine Learning Model Deployment
+Natural Language Processing (NLP) Tool
+Real-time Analytics Dashboard
+IoT Device Management System
+Data Visualization Tool
+Virtual Reality (VR) Application
+Augmented Reality (AR) Application
+Robotics Control System
+Game Engine
+3D Modeling Tool
+Smart Home Automation System
